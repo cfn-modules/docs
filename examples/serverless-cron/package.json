@@ -6,7 +6,7 @@
   "license": "Apache-2.0",
   "private": true,
   "dependencies": {
-    "@cfn-modules/lambda-function": "0.0.16",
-    "@cfn-modules/lambda-event-source-cron": "0.0.3"
+    "@cfn-modules/lambda-function": "^0",
+    "@cfn-modules/lambda-event-source-cron": "^0"
   }
 }
