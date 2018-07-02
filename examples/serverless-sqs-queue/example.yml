@@ -1,0 +1,28 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: 'cfn-modules: Serverless SQS queue example'
+Resources:
+  Queue:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters: {}
+      TemplateURL: './node_modules/@cfn-modules/sqs-queue/module.yml'
+  QueueEventSource:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        LambdaModule: !GetAtt 'Function.Outputs.StackName'
+        QueueModule: !GetAtt 'Queue.Outputs.StackName'
+      TemplateURL: './node_modules/@cfn-modules/lambda-event-source-sqs-queue/module.yml'
+  Function:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        Handler: 'example.handler'
+        Runtime: 'nodejs8.10'
+        ReservedConcurrentExecutions: 5
+      TemplateURL: './node_modules/@cfn-modules/lambda-function/module.yml'
+Outputs:
+  QueueName:
+    Value: !GetAtt 'Queue.Outputs.Name'

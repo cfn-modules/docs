@@ -1,0 +1,13 @@
+{
+  "name": "cfn-modules-serverless-sqs-queue",
+  "version": "0.0.0",
+  "description": "cfn-modules: Serverless SQS queue example",
+  "author": "Michael Wittig <michael@widdix.de>",
+  "license": "Apache-2.0",
+  "private": true,
+  "dependencies": {
+    "@cfn-modules/lambda-function": "0.0.15",
+    "@cfn-modules/sqs-queue": "0.0.7",
+    "@cfn-modules/lambda-event-source-sqs-queue": "0.0.3"
+  }
+}
