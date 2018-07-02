@@ -1,7 +1,7 @@
 {
-  "name": "cfn-modules-vpc-example",
+  "name": "cfn-modules-ec2-example",
   "version": "0.0.0",
-  "description": "cfn-modules: VPC example",
+  "description": "cfn-modules: EC2 example",
   "author": "Michael Wittig <michael@widdix.de>",
   "license": "Apache-2.0",
   "private": true,

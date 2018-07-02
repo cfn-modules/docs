@@ -1,7 +1,25 @@
-# cfn-modules
+# cfn-modules User Guide
+
+Easy going CloudFormation: Modular, production ready, open source.
+
+> cfn-modules is work in progress. Don't use it yet!
+
+## Examples
+* Serverless
+    * [API](./examples/serverless/)
+    * [Cron](./examples/serverless-cron/)
+    * [Image resize](./examples/serverless-image-resize/)
+    * [SQS queue](./examples/serverless-sqs-queue/)
+* [EC2](./examples/ec2/)
+
+Check out the [examples](./examples/) folder to see all examples.
+
+## Why cfn-modules?
+
+### Modular
+TODO
 
 ## Production ready
-
 All modules are production-ready. If no other limitations are documented, they are:
 
 * Highly available
@@ -18,6 +36,9 @@ All modules are production-ready. If no other limitations are documented, they a
     * logging enabled
     * alerting enabled
     * updateable
+
+## Open source
+TODO
 
 ## Before release
 
@@ -38,62 +59,3 @@ All modules are production-ready. If no other limitations are documented, they a
 * module elasticsearch
 * in module's `package.json` files, `"engines" : { "npm" : "~1.0.20" }` can ensure that a certain npm version is used which we likely need to make sure that the dir layout is as assumed
 * Document `npm outdated` to show outdated modules
-
-## Interfaces
-
-### ExposeArn
-
-#### Parameters
-none
-
-#### Outputs
-* `Arn`
-
-### ExposeName
-
-#### Parameters
-none
-
-#### Outputs
-* `Name`
-
-### ExposeId
-
-#### Parameters
-none
-
-#### Outputs
-* `Id`
-
-### ExposeSecurityGroupId
-
-#### Parameters
-none
-
-#### Outputs
-* `SecurityGroupId`
-
-### LambdaDependency (extends ExposeArn)
-
-#### Parameters
-none
-
-#### Outputs
-* `IamActions`
-* `IamResources`
-
-### Bastion (extends ExposeSecurityGroupId)
-
-#### Parameters
-none
-
-#### Outputs
-none
-
-### HostedZone (extends: ExposeName, ExposeId)
-
-#### Parameters
-none
-
-#### Outputs
-none

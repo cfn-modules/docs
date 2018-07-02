@@ -1,4 +1,4 @@
-# cfn-modules: VPC example project
+# cfn-modules: EC2 example project
 
 This example project demonstrates how an EC2 instance can be placed into a VPC with a bastion host for secure SSH access.
 
@@ -16,7 +16,7 @@ This example project demonstrates how an EC2 instance can be placed into a VPC w
 ```
 npm i
 aws cloudformation package --template-file example.yml --s3-bucket $BucketName --output-template-file packaged_example.yml
-aws cloudformation deploy --template-file packaged_example.yml --stack-name vpc-example --capabilities CAPABILITY_IAM
+aws cloudformation deploy --template-file packaged_example.yml --stack-name ec2-example --capabilities CAPABILITY_IAM
 ```
 
 ## Modules
