@@ -15,11 +15,16 @@ Easy going CloudFormation: Modular, production ready, open source.
 Check out the [examples](./examples/) folder to see all examples.
 
 ## Why cfn-modules?
+We started with [aws-cf-templates](https://github.com/widdix/aws-cf-templates) in 2015. Three years later, we believe that we have learned enough to come up with a new approach to use CloudFormation more efficient.
 
 ### Modular
-TODO
+Reusing CloudFormation templates is hard. Most often, templates are initially copied and then modified.
 
-## Production ready
+Two problems arise. First, updates to the copy are not applied to the original. Second, updates to the original are not applied to the copy. **In essence: we do not learn from each other!**
+
+By using an easy to use package manager ([npm](https://www.npmjs.com/)) you can install and update `cfn-modules` to spin up complex infrastructure in minuted that just works.
+
+### Production ready
 All modules are production-ready. If no other limitations are documented, they are:
 
 * Highly available
@@ -28,34 +33,31 @@ All modules are production-ready. If no other limitations are documented, they a
     * increase or decrease the capacity based on utilization
 * Secure
     * using the latest operating systems and software components
-    * follow the least privilege principle in all areas
+    * follow the least privilege principle (e.g., IAM policies and Security Groups)
     * backups enabled
-    * support encryption at-rest
-    * support encryption in-transit
+    * encryption at-rest enabled
+    * encryption in-transit enabled and preferred
 * Operations friendly
     * logging enabled
     * alerting enabled
-    * updateable
+    * updatable
 
-## Open source
-TODO
+### Open source
+All modules are licensed under [Apache-2.0](./LICENSE). Commercial use is allowed.
 
-## Before release
+## Open tasks
 
 * [ ] Name `cfn-modules`?
 * [ ] Add tests to modules
 * [x] Add linter to modules
-
-## TODOs
-
-* ECS Fargate example
-* ECS example
-* Typical web application (WordPress?) example
-* API/method module
-* `lambdas` rename folder name to something more natural, like `src`
-* module rds-postgres
-* module rds-aurora
-* module elasticache-memcached
-* module elasticsearch
-* in module's `package.json` files, `"engines" : { "npm" : "~1.0.20" }` can ensure that a certain npm version is used which we likely need to make sure that the dir layout is as assumed
-* Document `npm outdated` to show outdated modules
+* [ ] ECS Fargate example
+* [ ] ECS example
+* [ ] Typical web application (WordPress?) example
+* [ ] API/method module
+* [ ] `lambdas` rename folder name to something more natural, like `src`
+* [ ] module rds-postgres
+* [ ] module rds-aurora
+* [ ] module elasticache-memcached
+* [ ] module elasticsearch
+* [ ] in module's `package.json` files, `"engines" : { "npm" : "~1.0.20" }` can ensure that a certain npm version is used which we likely need to make sure that the dir layout is as assumed
+* [ ] document `npm outdated` to show outdated modules
