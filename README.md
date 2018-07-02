@@ -144,3 +144,4 @@ All modules are licensed under [Apache-2.0](./LICENSE). Commercial use is allowe
 * [ ] module elasticsearch
 * [ ] in module's `package.json` files, `"engines" : { "npm" : "~1.0.20" }` can ensure that a certain npm version is used which we likely need to make sure that the dir layout is as assumed
 * [ ] document `npm outdated` to show outdated modules
+* [ ] we will run into issued if npm installs different versions of the same module which will cause a more nested dir structure
