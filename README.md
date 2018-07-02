@@ -21,9 +21,9 @@ All modules are production-ready. If no other limitations are documented, they a
 
 ## Before release
 
-* Name `cfn-modules`?
-* Add tests to modules
-* Add linter to modules
+* [ ] Name `cfn-modules`?
+* [ ] Add tests to modules
+* [x] Add linter to modules
 
 ## TODOs
 
@@ -37,6 +37,7 @@ All modules are production-ready. If no other limitations are documented, they a
 * module elasticache-memcached
 * module elasticsearch
 * in module's `package.json` files, `"engines" : { "npm" : "~1.0.20" }` can ensure that a certain npm version is used which we likely need to make sure that the dir layout is as assumed
+* Document `npm outdated` to show outdated modules
 
 ## Interfaces
 

@@ -6,11 +6,11 @@
   "license": "Apache-2.0",
   "private": true,
   "dependencies": {
-    "@cfn-modules/alerting": "0.0.4",
-    "@cfn-modules/dynamodb-table": "0.0.4",
-    "@cfn-modules/lambda-function": "0.0.15",
-    "@cfn-modules/sqs-queue": "0.0.7",
-    "@cfn-modules/kms-key": "0.0.2",
-    "@cfn-modules/s3-bucket": "0.0.6"
+    "@cfn-modules/alerting": "0.0.5",
+    "@cfn-modules/dynamodb-table": "0.0.5",
+    "@cfn-modules/lambda-function": "0.0.16",
+    "@cfn-modules/sqs-queue": "0.0.8",
+    "@cfn-modules/kms-key": "0.0.3",
+    "@cfn-modules/s3-bucket": "0.0.7"
   }
 }
