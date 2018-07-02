@@ -1,0 +1,16 @@
+{
+  "name": "cfn-modules-serverless-example",
+  "version": "0.0.0",
+  "description": "cfn-modules: Serverless example",
+  "author": "Michael Wittig <michael@widdix.de>",
+  "license": "Apache-2.0",
+  "private": true,
+  "dependencies": {
+    "@cfn-modules/alerting": "0.0.4",
+    "@cfn-modules/dynamodb-table": "0.0.4",
+    "@cfn-modules/lambda-function": "0.0.15",
+    "@cfn-modules/sqs-queue": "0.0.7",
+    "@cfn-modules/kms-key": "0.0.2",
+    "@cfn-modules/s3-bucket": "0.0.6"
+  }
+}

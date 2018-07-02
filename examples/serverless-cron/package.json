@@ -1,0 +1,12 @@
+{
+  "name": "cfn-modules-serverless-cron-example",
+  "version": "0.0.0",
+  "description": "cfn-modules: Serverless cron example",
+  "author": "Michael Wittig <michael@widdix.de>",
+  "license": "Apache-2.0",
+  "private": true,
+  "dependencies": {
+    "@cfn-modules/lambda-function": "0.0.15",
+    "@cfn-modules/lambda-event-source-cron": "0.0.2"
+  }
+}

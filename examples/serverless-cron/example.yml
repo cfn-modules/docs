@@ -1,0 +1,19 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: 'cfn-modules: Serverless cron example'
+Resources:
+  Cron:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        LambdaModule: !GetAtt 'Function.Outputs.StackName'
+        ScheduleExpression: 'rate(1 minute)'
+      TemplateURL: './node_modules/@cfn-modules/lambda-event-source-cron/module.yml'
+  Function:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        Handler: 'cron.handler'
+        Runtime: 'nodejs8.10'
+      TemplateURL: './node_modules/@cfn-modules/lambda-function/module.yml'

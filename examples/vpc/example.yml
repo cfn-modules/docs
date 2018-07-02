@@ -1,0 +1,49 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'cfn-modules: VPC example'
+Resources:
+  Alerting:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        Email: 'michael@widdix.de' # TODO remove before release
+      TemplateURL: './node_modules/@cfn-modules/alerting/module.yml'
+  Vpc:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters: {}
+      TemplateURL: './node_modules/@cfn-modules/vpc/module.yml'
+  HostedZone:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        Name: 'widdix.de'
+      TemplateURL: './node_modules/@cfn-modules/route53-hosted-zone-public/module.yml'
+  Bastion:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        VpcModule: !GetAtt 'Vpc.Outputs.StackName'
+        AlertingModule: !GetAtt 'Alerting.Outputs.StackName'
+        HostedZoneModule: !GetAtt 'HostedZone.Outputs.StackName'
+        IAMUserSSHAccess: 'true'
+      TemplateURL: './node_modules/@cfn-modules/ssh-bastion/module.yml'
+  Instance:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        VpcModule: !GetAtt 'Vpc.Outputs.StackName'
+        AlertingModule: !GetAtt 'Alerting.Outputs.StackName'
+        BastionModule: !GetAtt 'Bastion.Outputs.StackName'
+        HostedZoneModule: !GetAtt 'HostedZone.Outputs.StackName'
+        IAMUserSSHAccess: 'true'
+        UserData: |
+          yum install -y httpd24
+          service httpd start
+          chkconfig httpd on
+          echo "cfn-modules: VPC example" > /var/www/html/index.html
+        IngressTcpPort1: '80'
+      TemplateURL: './node_modules/@cfn-modules/ec2-instance-amazon-linux/module.yml'
+Outputs:
+  Url:
+    Value: !Sub 'http://${Instance.Outputs.PublicIpAddress}'

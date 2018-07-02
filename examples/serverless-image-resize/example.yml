@@ -1,0 +1,31 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: 'cfn-modules: Serverless image resize example'
+Resources:
+  BucketRaw:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        Versioning: 'false'
+        LambdaEventTargetLambdaModule1: !GetAtt 'FunctionResize.Outputs.StackName'
+      TemplateURL: './node_modules/@cfn-modules/s3-bucket/module.yml'
+  BucketResized:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        Versioning: 'false'
+      TemplateURL: './node_modules/@cfn-modules/s3-bucket/module.yml'
+  FunctionResize:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        Handler: 'resize.handler'
+        Runtime: 'nodejs8.10'
+        DependencyModule1: !GetAtt 'BucketResized.Outputs.StackName'
+      TemplateURL: './node_modules/@cfn-modules/lambda-function/module.yml'
+Outputs:
+  BucketNameRaw:
+    Value: !GetAtt 'BucketRaw.Outputs.Name'
+  BucketNameResized:
+    Value: !GetAtt 'BucketResized.Outputs.Name'

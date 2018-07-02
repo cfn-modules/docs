@@ -1,0 +1,15 @@
+{
+  "name": "cfn-modules-vpc-example",
+  "version": "0.0.0",
+  "description": "cfn-modules: VPC example",
+  "author": "Michael Wittig <michael@widdix.de>",
+  "license": "Apache-2.0",
+  "private": true,
+  "dependencies": {
+    "@cfn-modules/alerting": "0.0.4",
+    "@cfn-modules/vpc": "0.0.23",
+    "@cfn-modules/ec2-instance-amazon-linux": "0.0.5",
+    "@cfn-modules/route53-hosted-zone-public": "0.0.3",
+    "@cfn-modules/ssh-bastion": "0.0.4"
+  }
+}

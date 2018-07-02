@@ -1,0 +1,42 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'cfn-modules: Serverless image resize example'
+Outputs:
+  BucketNameRaw:
+    Value:
+      Fn::GetAtt:
+      - BucketRaw
+      - Outputs.Name
+  BucketNameResized:
+    Value:
+      Fn::GetAtt:
+      - BucketResized
+      - Outputs.Name
+Resources:
+  BucketRaw:
+    Properties:
+      Parameters:
+        LambdaEventTargetLambdaModule1:
+          Fn::GetAtt:
+          - FunctionResize
+          - Outputs.StackName
+        Versioning: 'false'
+      TemplateURL: https://s3.amazonaws.com/mwittig-cfn-modules/252b3418dd087c36544cfec55d3da287.template
+    Type: AWS::CloudFormation::Stack
+  BucketResized:
+    Properties:
+      Parameters:
+        Versioning: 'false'
+      TemplateURL: https://s3.amazonaws.com/mwittig-cfn-modules/252b3418dd087c36544cfec55d3da287.template
+    Type: AWS::CloudFormation::Stack
+  FunctionResize:
+    Properties:
+      Parameters:
+        DependencyModule1:
+          Fn::GetAtt:
+          - BucketResized
+          - Outputs.StackName
+        Handler: resize.handler
+        Runtime: nodejs8.10
+      TemplateURL: https://s3.amazonaws.com/mwittig-cfn-modules/ce7dd066e35c0c2d745fa36c3f5b973a.template
+    Type: AWS::CloudFormation::Stack
+Transform: AWS::Serverless-2016-10-31

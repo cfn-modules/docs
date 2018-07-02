@@ -1,0 +1,76 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: 'cfn-modules: Serverless example'
+Resources:
+  Key:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      TemplateURL: './node_modules/@cfn-modules/kms-key/module.yml'
+  Alerting:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        Email: 'michael@widdix.de' # TODO remove before release
+      TemplateURL: './node_modules/@cfn-modules/alerting/module.yml'
+  Queue:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        AlertingModule: !GetAtt 'Alerting.Outputs.StackName'
+        KmsKeyModule: !GetAtt 'Key.Outputs.StackName'
+        DelaySeconds: 60
+      TemplateURL: './node_modules/@cfn-modules/sqs-queue/module.yml'
+  Table:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        AlertingModule: !GetAtt 'Alerting.Outputs.StackName'
+        Encryption: aws
+      TemplateURL: './node_modules/@cfn-modules/dynamodb-table/module.yml'
+  Bucket:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        KmsKeyModule: !GetAtt 'Key.Outputs.StackName'
+        Versioning: 'false'
+      TemplateURL: './node_modules/@cfn-modules/s3-bucket/module.yml'
+  Function:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        AlertingModule: !GetAtt 'Alerting.Outputs.StackName'
+        KmsKeyModule: !GetAtt 'Key.Outputs.StackName'
+        Handler: 'example.handler'
+        Runtime: 'nodejs8.10'
+        DependencyModule1: !GetAtt 'Queue.Outputs.StackName'
+        DependencyModule2: !GetAtt 'Table.Outputs.StackName'
+        DependencyModule3: !GetAtt 'Bucket.Outputs.StackName'
+      TemplateURL: './node_modules/@cfn-modules/lambda-function/module.yml'
+  Api:
+    Type: 'AWS::Serverless::Api'
+    Properties:
+      StageName: v1
+      DefinitionBody:
+        swagger: '2.0'
+        basePath: '/'
+        info:
+          title: 'cfn-modules-serverless-example'
+        schemes:
+        - https
+        paths:
+          '/test':
+            get:
+              produces:
+              - 'application/json'
+              responses:
+                '200':
+                  description: success
+              x-amazon-apigateway-integration:
+                httpMethod: POST
+                type: 'aws_proxy'
+                uri: !Sub 'arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Function.Outputs.Arn}/invocations'
+                passthroughBehavior: 'when_no_match'
+Outputs:
+  Url:
+    Value: !Sub 'https://${Api}.execute-api.${AWS::Region}.amazonaws.com/${Api.Stage}/test'
