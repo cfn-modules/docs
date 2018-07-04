@@ -9,12 +9,15 @@ Easy going CloudFormation: Modular, production ready, open source.
 * npm 3.x installed ([install Node.js 8.x](https://nodejs.org/))
 
 ## Examples
+* EC2
+    * [TODO](./examples/ec2/)
+    * [Connect to MySQL](./examples/ec2-mysql/)
+    * [Connect to Postgres](./examples/ec2-postgres/)
 * Serverless
     * [API](./examples/serverless/)
     * [Cron](./examples/serverless-cron/)
     * [Image resize](./examples/serverless-image-resize/)
     * [SQS queue](./examples/serverless-sqs-queue/)
-* [EC2](./examples/ec2/)
 
 Check out the [examples](./examples/) folder to see all examples.
 
@@ -138,8 +141,9 @@ All modules are licensed under [Apache-2.0](./LICENSE). Commercial use is allowe
 * [ ] API/method module
 * [ ] `lambdas` rename folder name to something more natural, like `src`
 * [x] module client-sg
-* [ ] module rds-postgres
-* [ ] module rds-aurora
+* [x] module rds-postgres
+* [x] module rds-mysql
+* [ ] module rds-aurora-mysql
 * [ ] module elasticache-memcached
 * [ ] module elasticsearch
 * [ ] in module's `package.json` files, `"engines" : { "npm" : "~1.0.20" }` can ensure that a certain npm version is used which we likely need to make sure that the dir layout is as assumed

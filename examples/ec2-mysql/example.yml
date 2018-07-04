@@ -1,0 +1,60 @@
+---
+# Copyright 2018 widdix GmbH
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'cfn-modules: EC2 MySQL example'
+Resources:
+  Vpc:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        NumberOfAvailabilityZones: '2' # speed up the example
+        S3Endpoint: 'false' # speed up the example
+        DynamoDBEndpoint: 'false' # speed up the example
+        FlowLog: 'false' # speed up the example
+        NatGateways: 'false' # speed up the example
+      TemplateURL: './node_modules/@cfn-modules/vpc/module.yml'
+  ClientSg:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        VpcModule: !GetAtt 'Vpc.Outputs.StackName'
+      TemplateURL: './node_modules/@cfn-modules/client-sg/module.yml'
+  Database:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        VpcModule: !GetAtt 'Vpc.Outputs.StackName'
+        ClientSgModule: !GetAtt 'ClientSg.Outputs.StackName'
+        DBMasterUserPassword: insecure
+        DBBackupRetentionPeriod: '0' # speed up the example (do not set to 0 in production!)
+        DBMultiAZ: 'false' # speed up the example (do not set to false in production!)
+      TemplateURL: './node_modules/@cfn-modules/rds-mysql/module.yml'
+  Instance:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        VpcModule: !GetAtt 'Vpc.Outputs.StackName'
+        IAMUserSSHAccess: 'true'
+        UserData: |
+          yum install -y httpd24 php70 php70-mysqlnd
+          wget -O  /var/www/html/index.php https://github.com/vrana/adminer/releases/download/v4.6.3/adminer-4.6.3.php
+          service httpd start
+          chkconfig httpd on
+        IngressTcpPort1: '80'
+        ClientSgModule1: !GetAtt 'ClientSg.Outputs.StackName'
+      TemplateURL: './node_modules/@cfn-modules/ec2-instance-amazon-linux/module.yml'
+Outputs:
+  Url:
+    Value: !Sub 'http://${Instance.Outputs.PublicIpAddress}/?server=${Database.Outputs.DnsName}&username=master'

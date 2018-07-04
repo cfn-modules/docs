@@ -1,0 +1,14 @@
+{
+  "name": "cfn-modules-ec2-mysql-example",
+  "version": "0.0.0",
+  "description": "cfn-modules: EC2 MySQL example",
+  "author": "Michael Wittig <michael@widdix.de>",
+  "license": "Apache-2.0",
+  "private": true,
+  "dependencies": {
+    "@cfn-modules/vpc": "^0.0.25",
+    "@cfn-modules/rds-mysql": "^0.0.1",
+    "@cfn-modules/client-sg": "^0.0.1",
+    "@cfn-modules/ec2-instance-amazon-linux": "^0.0.9"
+  }
+}
