@@ -15,8 +15,14 @@ This example project demonstrates how a Lambda function can resize a image uploa
 
 ```
 npm i
-aws cloudformation package --template-file example.yml --s3-bucket $BucketName --output-template-file packaged_example.yml
-aws cloudformation deploy --template-file packaged_example.yml --stack-name serverless-image-resize-example --capabilities CAPABILITY_IAM
+aws cloudformation package --template-file example.yml --s3-bucket $BucketName --output-template-file packaged.yml
+aws cloudformation deploy --template-file packaged.yml --stack-name serverless-image-resize-example --capabilities CAPABILITY_IAM
+```
+
+Don't forget to delete the stack once your are done with the demo:
+
+```
+aws cloudformation delete-stack --stack-name serverless-image-resize-example
 ```
 
 ## Modules

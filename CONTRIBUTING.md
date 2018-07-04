@@ -36,6 +36,14 @@ none
 #### Outputs
 * `SecurityGroupId`
 
+### ExposeDnsName
+
+#### Parameters
+none
+
+#### Outputs
+* `DnsName`
+
 ### LambdaDependency (extends ExposeArn)
 
 #### Parameters

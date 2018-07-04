@@ -24,7 +24,6 @@ Resources:
   Vpc:
     Type: 'AWS::CloudFormation::Stack'
     Properties:
-      Parameters: {}
       TemplateURL: './node_modules/@cfn-modules/vpc/module.yml'
   HostedZone:
     Type: 'AWS::CloudFormation::Stack'

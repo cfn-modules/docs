@@ -15,8 +15,17 @@ This example project demonstrates how IAM policies for Lambda functions are auto
 
 ```
 npm i
-aws cloudformation package --template-file example.yml --s3-bucket $BucketName --output-template-file packaged_example.yml
-aws cloudformation deploy --template-file packaged_example.yml --stack-name serverless-example --capabilities CAPABILITY_IAM
+aws cloudformation package --template-file example.yml --s3-bucket $BucketName --output-template-file packaged.yml
+aws cloudformation deploy --template-file packaged.yml --stack-name serverless-example --capabilities CAPABILITY_IAM
+aws cloudformation describe-stacks --stack-name serverless-example --query "Stacks[0].Outputs[?OutputKey=='Url'].OutputValue" --output text
+```
+
+Open the URL in your web browser and you will see the page returned by API gateway.
+
+Don't forget to delete the stack once your are done with the demo:
+
+```
+aws cloudformation delete-stack --stack-name serverless-example
 ```
 
 ## Modules

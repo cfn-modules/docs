@@ -40,7 +40,6 @@ Resources:
   Vpc:
     Type: 'AWS::CloudFormation::Stack'
     Properties:
-      Parameters: {} # no parameters are required
       TemplateURL: './node_modules/@cfn-modules/vpc/module.yml'
   Instance:
     Type: 'AWS::CloudFormation::Stack'

@@ -19,7 +19,6 @@ Resources:
   Queue:
     Type: 'AWS::CloudFormation::Stack'
     Properties:
-      Parameters: {}
       TemplateURL: './node_modules/@cfn-modules/sqs-queue/module.yml'
   QueueEventSource:
     Type: 'AWS::CloudFormation::Stack'
