@@ -13,6 +13,8 @@ Easy going CloudFormation: Modular, production ready, open source.
 ## Examples
 * EC2
     * [TODO](./examples/ec2/)
+    * [Mount EBS volume](./examples/ec2-ebs/)
+    * [Mount EFS file system](./examples/ec2-efs/)
     * [Connect to MySQL](./examples/ec2-mysql/)
     * [Connect to Postgres](./examples/ec2-postgres/)
 * Serverless

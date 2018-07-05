@@ -9,6 +9,6 @@
     "@cfn-modules/vpc": "^0.0.28",
     "@cfn-modules/rds-postgres": "^0.0.3",
     "@cfn-modules/client-sg": "^0.0.1",
-    "@cfn-modules/ec2-instance-amazon-linux": "^0.0.12"
+    "@cfn-modules/ec2-instance-amazon-linux": "^0.0.13"
   }
 }
