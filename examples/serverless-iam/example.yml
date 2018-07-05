@@ -14,7 +14,7 @@
 # limitations under the License.
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: 'AWS::Serverless-2016-10-31'
-Description: 'cfn-modules: Serverless example'
+Description: 'cfn-modules: Serverless IAM example'
 Resources:
   Key:
     Type: 'AWS::CloudFormation::Stack'
@@ -60,30 +60,3 @@ Resources:
         DependencyModule2: !GetAtt 'Table.Outputs.StackName'
         DependencyModule3: !GetAtt 'Bucket.Outputs.StackName'
       TemplateURL: './node_modules/@cfn-modules/lambda-function/module.yml'
-  Api:
-    Type: 'AWS::Serverless::Api'
-    Properties:
-      StageName: v1
-      DefinitionBody:
-        swagger: '2.0'
-        basePath: '/'
-        info:
-          title: 'cfn-modules-serverless-example'
-        schemes:
-        - https
-        paths:
-          '/test':
-            get:
-              produces:
-              - 'application/json'
-              responses:
-                '200':
-                  description: success
-              x-amazon-apigateway-integration:
-                httpMethod: POST
-                type: 'aws_proxy'
-                uri: !Sub 'arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Function.Outputs.Arn}/invocations'
-                passthroughBehavior: 'when_no_match'
-Outputs:
-  Url:
-    Value: !Sub 'https://${Api}.execute-api.${AWS::Region}.amazonaws.com/${Api.Stage}/test'

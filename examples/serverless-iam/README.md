@@ -1,6 +1,6 @@
-# cfn-modules: EC2 example project
+# cfn-modules: Serverless IAM example project
 
-This example project demonstrates how an EC2 instance can be placed into a VPC with a bastion host for secure SSH access.
+This example project demonstrates how IAM policies for Lambda functions are automatically created when `cfn-modules` are combined.
 
 ## Prerequisites
 
@@ -16,7 +16,16 @@ This example project demonstrates how an EC2 instance can be placed into a VPC w
 ```
 npm i
 aws cloudformation package --template-file example.yml --s3-bucket $BucketName --output-template-file packaged.yml
-aws cloudformation deploy --template-file packaged.yml --stack-name ec2-example --capabilities CAPABILITY_IAM
+aws cloudformation deploy --template-file packaged.yml --stack-name serverless-example --capabilities CAPABILITY_IAM
+aws cloudformation describe-stacks --stack-name serverless-example --query "Stacks[0].Outputs[?OutputKey=='Url'].OutputValue" --output text
+```
+
+Checkout the IAM role attached to the Lambda function!
+
+Don't forget to delete the stack once your are done with the demo:
+
+```
+aws cloudformation delete-stack --stack-name serverless-example
 ```
 
 ## Modules

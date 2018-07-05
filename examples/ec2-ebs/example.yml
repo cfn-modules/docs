@@ -19,7 +19,6 @@ Resources:
     Type: 'AWS::CloudFormation::Stack'
     Properties:
       Parameters:
-        NumberOfAvailabilityZones: '2' # speed up the example
         S3Endpoint: 'false' # speed up the example
         DynamoDBEndpoint: 'false' # speed up the example
         FlowLog: 'false' # speed up the example

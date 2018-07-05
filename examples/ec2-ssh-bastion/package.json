@@ -1,14 +1,14 @@
 {
-  "name": "cfn-modules-ec2-example",
+  "name": "cfn-modules-ec2-ssh-bastion-example",
   "version": "0.0.0",
-  "description": "cfn-modules: EC2 example",
+  "description": "cfn-modules: EC2 SSH bastion example",
   "author": "Michael Wittig <michael@widdix.de>",
   "license": "Apache-2.0",
   "private": true,
   "dependencies": {
     "@cfn-modules/alerting": "^0.0.5",
     "@cfn-modules/vpc": "^0.0.28",
-    "@cfn-modules/ec2-instance-amazon-linux": "^0.0.13",
+    "@cfn-modules/ec2-instance-amazon-linux": "^0.0.14",
     "@cfn-modules/route53-hosted-zone-public": "^0.0.4",
     "@cfn-modules/ssh-bastion": "^0.0.5"
   }

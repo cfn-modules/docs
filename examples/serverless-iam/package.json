@@ -1,7 +1,7 @@
 {
-  "name": "cfn-modules-serverless-example",
+  "name": "cfn-modules-serverless-iam-example",
   "version": "0.0.0",
-  "description": "cfn-modules: Serverless example",
+  "description": "cfn-modules: Serverless IAM example",
   "author": "Michael Wittig <michael@widdix.de>",
   "license": "Apache-2.0",
   "private": true,

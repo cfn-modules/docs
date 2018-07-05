@@ -8,6 +8,6 @@
   "dependencies": {
     "@cfn-modules/vpc": "^0.0.28",
     "@cfn-modules/ebs-volume": "^0.0.1",
-    "@cfn-modules/ec2-instance-amazon-linux": "^0.0.13"
+    "@cfn-modules/ec2-instance-amazon-linux": "^0.0.14"
   }
 }

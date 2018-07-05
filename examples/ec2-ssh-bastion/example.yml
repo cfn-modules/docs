@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 AWSTemplateFormatVersion: '2010-09-09'
-Description: 'cfn-modules: EC2 example'
+Description: 'cfn-modules: EC2 SSH bastion example'
 Resources:
   Alerting:
     Type: 'AWS::CloudFormation::Stack'
@@ -24,6 +24,11 @@ Resources:
   Vpc:
     Type: 'AWS::CloudFormation::Stack'
     Properties:
+      Parameters:
+        S3Endpoint: 'false' # speed up the example
+        DynamoDBEndpoint: 'false' # speed up the example
+        FlowLog: 'false' # speed up the example
+        NatGateways: 'false' # speed up the example
       TemplateURL: './node_modules/@cfn-modules/vpc/module.yml'
   HostedZone:
     Type: 'AWS::CloudFormation::Stack'
@@ -49,13 +54,9 @@ Resources:
         BastionModule: !GetAtt 'Bastion.Outputs.StackName'
         HostedZoneModule: !GetAtt 'HostedZone.Outputs.StackName'
         IAMUserSSHAccess: 'true'
-        UserData: |
-          yum install -y httpd24
-          service httpd start
-          chkconfig httpd on
-          echo "cfn-modules: VPC example" > /var/www/html/index.html
-        IngressTcpPort1: '80'
       TemplateURL: './node_modules/@cfn-modules/ec2-instance-amazon-linux/module.yml'
 Outputs:
-  Url:
-    Value: !Sub 'http://${Instance.Outputs.PublicIpAddress}'
+  PublicIpAddress:
+    Value: !GetAtt 'Instance.Outputs.PublicIpAddress'
+  BastionPublicIpAddress:
+    Value: !GetAtt 'Bastion.Outputs.PublicIpAddress'
