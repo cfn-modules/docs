@@ -1,0 +1,12 @@
+{
+  "name": "cfn-modules-ec2-ssm-example",
+  "version": "0.0.0",
+  "description": "cfn-modules: EC2 SSM example",
+  "author": "Michael Wittig <michael@widdix.de>",
+  "license": "Apache-2.0",
+  "private": true,
+  "dependencies": {
+    "@cfn-modules/vpc": "^0.0.28",
+    "@cfn-modules/ec2-instance-amazon-linux2": "^0.0.3"
+  }
+}

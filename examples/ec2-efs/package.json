@@ -1,13 +1,13 @@
 {
-  "name": "cfn-modules-ec2-postgres-example",
+  "name": "cfn-modules-ec2-efs-example",
   "version": "0.0.0",
-  "description": "cfn-modules: EC2 PostgreSQL example",
+  "description": "cfn-modules: EC2 EFS example",
   "author": "Michael Wittig <michael@widdix.de>",
   "license": "Apache-2.0",
   "private": true,
   "dependencies": {
     "@cfn-modules/vpc": "^0.0.28",
-    "@cfn-modules/rds-postgres": "^0.0.3",
+    "@cfn-modules/efs-file-system": "^0.0.2",
     "@cfn-modules/client-sg": "^0.0.1",
     "@cfn-modules/ec2-instance-amazon-linux": "^0.0.12"
   }

@@ -6,9 +6,9 @@
   "license": "Apache-2.0",
   "private": true,
   "dependencies": {
-    "@cfn-modules/vpc": "^0.0.25",
+    "@cfn-modules/vpc": "^0.0.28",
     "@cfn-modules/rds-mysql": "^0.0.2",
     "@cfn-modules/client-sg": "^0.0.1",
-    "@cfn-modules/ec2-instance-amazon-linux": "^0.0.9"
+    "@cfn-modules/ec2-instance-amazon-linux": "^0.0.12"
   }
 }

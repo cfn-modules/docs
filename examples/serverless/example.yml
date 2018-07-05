@@ -32,7 +32,7 @@ Resources:
       Parameters:
         AlertingModule: !GetAtt 'Alerting.Outputs.StackName'
         KmsKeyModule: !GetAtt 'Key.Outputs.StackName'
-        DelaySeconds: 60
+        DelaySeconds: '60'
       TemplateURL: './node_modules/@cfn-modules/sqs-queue/module.yml'
   Table:
     Type: 'AWS::CloudFormation::Stack'

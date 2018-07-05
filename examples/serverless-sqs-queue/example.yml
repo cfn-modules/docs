@@ -33,7 +33,7 @@ Resources:
       Parameters:
         Handler: 'example.handler'
         Runtime: 'nodejs8.10'
-        ReservedConcurrentExecutions: 5
+        ReservedConcurrentExecutions: '5'
       TemplateURL: './node_modules/@cfn-modules/lambda-function/module.yml'
 Outputs:
   QueueName:

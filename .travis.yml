@@ -7,5 +7,5 @@ install:
 - 'pip install cfn-lint'
 script:
 - 'yamllint examples/'
-- '#find examples -type f -name ''*.yml'' | while read file; do set -ex && cfn-lint --template "$file"; done;' # TODO false positives
+- 'find examples -type f -name ''*.yml'' | while read file; do set -ex && cfn-lint --template "$file"; done;'
 - 'find examples -type f -name ''*.yml'' | while read file; do set -ex && grep -q "LICENSE-2.0" "$file"; done;'
