@@ -16,16 +16,68 @@ This example project demonstrates how IAM policies for Lambda functions are auto
 ```
 npm i
 aws cloudformation package --template-file example.yml --s3-bucket $BucketName --output-template-file packaged.yml
-aws cloudformation deploy --template-file packaged.yml --stack-name serverless-example --capabilities CAPABILITY_IAM
-aws cloudformation describe-stacks --stack-name serverless-example --query "Stacks[0].Outputs[?OutputKey=='Url'].OutputValue" --output text
+aws cloudformation deploy --template-file packaged.yml --stack-name serverless-iam-example --capabilities CAPABILITY_IAM
 ```
 
-Checkout the IAM role attached to the Lambda function!
+Checkout the IAM role attached to the Lambda function (Get the role name with `aws cloudformation describe-stacks --stack-name serverless-iam-example --query "Stacks[0].Outputs[?OutputKey=='RoleName'].OutputValue" --output text`). The Lambda function is allowed to talk to the SQS queue, DynamoDB table, and S3 bucket because of the `DependencyModule1`, `DependencyModule2`, and `DependencyModule3` parameter. The generated policy looks like this:
+
+```
+{
+  "Statement": [
+    {
+      "Action": [
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource": "*",
+      "Effect": "Allow"
+    },
+    {
+      "Action": [
+        "sqs:ChangeMessageVisibility*",
+        "sqs:DeleteMessage*",
+        "sqs:ReceiveMessage",
+        "sqs:SendMessage*"
+      ],
+      "Resource": [
+        "arn:aws:sqs:eu-west-1:***:serverless-iam-example-Queue-1KUL6CHQ72L11-Queue-YLDPFNGG00JJ"
+      ],
+      "Effect": "Allow"
+    },
+    {
+      "Action": [
+        "dynamodb:Batch*Item",
+        "dynamodb:DeleteItem",
+        "dynamodb:GetItem",
+        "dynamodb:PutItem"
+      ],
+      "Resource": [
+        "arn:aws:dynamodb:eu-west-1:***:table/serverless-iam-example-Table-1ES8PX0YZ1UE1-Table-OFBM6RPW27KD"
+      ],
+      "Effect": "Allow"
+    },
+    {
+      "Action": [
+        "s3:DeleteObject*",
+        "s3:GetObject*",
+        "s3:ListBucket*",
+        "s3:ListMultipartUploadParts",
+        "s3:PutObject*"
+      ],
+      "Resource": [
+        "arn:aws:s3:::serverless-iam-example-bucket-1pwiud7lmras-bucket-191m2vgi3rwz2",
+        "arn:aws:s3:::serverless-iam-example-bucket-1pwiud7lmras-bucket-191m2vgi3rwz2/*"
+      ],
+      "Effect": "Allow"
+    }
+  ]
+}
+```
 
 Don't forget to delete the stack once your are done with the demo:
 
 ```
-aws cloudformation delete-stack --stack-name serverless-example
+aws cloudformation delete-stack --stack-name serverless-iam-example
 ```
 
 ## Modules

@@ -60,3 +60,6 @@ Resources:
         DependencyModule2: !GetAtt 'Table.Outputs.StackName'
         DependencyModule3: !GetAtt 'Bucket.Outputs.StackName'
       TemplateURL: './node_modules/@cfn-modules/lambda-function/module.yml'
+Outputs:
+  RoleName:
+    Value: !GetAtt 'Function.Outputs.RoleName'
