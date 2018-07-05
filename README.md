@@ -1,5 +1,7 @@
 # cfn-modules User Guide
 
+![cfn-modules](./logo.png)
+
 Easy going CloudFormation: Modular, production ready, open source.
 
 > `cfn-modules` is work in progress. Don't use it yet!
