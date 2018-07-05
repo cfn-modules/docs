@@ -136,6 +136,7 @@ All modules are licensed under [Apache-2.0](./LICENSE). Commercial use is allowe
 
 ## Open tasks
 
+* [ ] check & document module "Production ready" limitations
 * [ ] Name `cfn-modules`?
 * [ ] Add tests to modules
 * [x] Add linter to modules
@@ -150,6 +151,11 @@ All modules are licensed under [Apache-2.0](./LICENSE). Commercial use is allowe
 * [ ] module rds-aurora-mysql
 * [ ] module elasticache-memcached
 * [ ] module elasticsearch
+* [ ] module ec2-instance (using ImageId as a parameter)
+* [ ] module 1:1:1 Auto Scaling Group based on Amazon Linux
+* [ ] module 1:1:1 Auto Scaling Group based on Amazon Linux 2 (ssh-bastion module should depend on that)
+* [ ] module Auto Scaling Group based on Amazon Linux
+* [ ] module Auto Scaling Group based on Amazon Linux 2
 * [ ] in module's `package.json` files, `"engines" : { "npm" : "~1.0.20" }` can ensure that a certain npm version is used which we likely need to make sure that the dir layout is as assumed
 * [ ] document `npm outdated` to show outdated modules
 * [ ] we will run into issued if npm installs different versions of the same module which will cause a more nested dir structure

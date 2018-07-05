@@ -1,4 +1,4 @@
-# cfn-modules: EC2 example project
+# cfn-modules: EC2 SSH bastion example project
 
 This example project demonstrates how an EC2 instance can be placed into a VPC with a bastion host for secure SSH access.
 
@@ -20,12 +20,12 @@ aws cloudformation deploy --template-file packaged.yml --stack-name ec2-ssh-bast
 ```
 
 To connect to the EC2 instance via SSH, run the following command. Replace:
-* `$IamUserName` with your IAM user name ([read this of your user name contains special characters](https://github.com/widdix/aws-ec2-ssh#iam-user-names-and-linux-user-names))
+* `$IamUserName` with your IAM user name (requires that you upload a public SSH key for your IAM user under Security Credentials, [read this of your user name contains special characters](https://github.com/widdix/aws-ec2-ssh#iam-user-names-and-linux-user-names))
 * `$BastionPublicIpAddress` with the output of `aws cloudformation describe-stacks --stack-name ec2-ssh-bastion-example --query "Stacks[0].Outputs[?OutputKey=='BastionPublicIpAddress'].OutputValue" --output text`
-* `$PublicIpAddress` with the output of `aws cloudformation describe-stacks --stack-name ec2-ssh-bastion-example --query "Stacks[0].Outputs[?OutputKey=='PublicIpAddress'].OutputValue" --output text`
+* `$TargetPrivateIpAddress` with the output of `aws cloudformation describe-stacks --stack-name ec2-ssh-bastion-example --query "Stacks[0].Outputs[?OutputKey=='TargetPrivateIpAddress'].OutputValue" --output text`
 
 ```
-ssh -J $IamUserName@$$BastionPublicIpAddress $PublicIpAddress
+ssh -J $IamUserName@$$BastionPublicIpAddress $TargetPrivateIpAddress
 ```
 
 Don't forget to delete the stack once your are done with the demo:
