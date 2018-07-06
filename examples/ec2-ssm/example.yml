@@ -30,7 +30,7 @@ Resources:
       Parameters:
         VpcModule: !GetAtt 'Vpc.Outputs.StackName'
       TemplateURL: './node_modules/@cfn-modules/ec2-instance-amazon-linux2/module.yml'
-  AssociationGatherSoftwareInventory1:
+  AssociationGatherSoftwareInventory:
     Type: 'AWS::SSM::Association'
     Properties:
       Name: 'AWS-GatherSoftwareInventory'
@@ -38,12 +38,22 @@ Resources:
       Targets:
       - Key: InstanceIds
         Values: [!GetAtt 'Instance.Outputs.Id']
-  AssociationRunPatchBaseline1:
+  AssociationRunPatchBaselineScan:
     Type: 'AWS::SSM::Association'
     Properties:
       Name: 'AWS-RunPatchBaseline'
       Parameters:
         Operation: [Scan]
+      ScheduleExpression: 'rate(1 hour)'
+      Targets:
+      - Key: InstanceIds
+        Values: [!GetAtt 'Instance.Outputs.Id']
+  AssociationRunPatchBaselineInstall:
+    Type: 'AWS::SSM::Association'
+    Properties:
+      Name: 'AWS-RunPatchBaseline'
+      Parameters:
+        Operation: [Install]
       ScheduleExpression: 'rate(1 hour)'
       Targets:
       - Key: InstanceIds
