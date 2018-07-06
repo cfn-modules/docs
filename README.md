@@ -27,7 +27,7 @@ Check out the [examples](./examples/) folder to see all examples.
 
 ## Getting started
 
-`cfn-modules` are installed and updated with the package manager [npm](https://www.npmjs.com/). The [module catalog](https://www.npmjs.com/org/cfn-modules) contains all available modules. Let's start with a simple example: An EC2 instance launched into an VPC.
+`cfn-modules` are installed and updated with the package manager [npm](https://www.npmjs.com/). The [module catalog](https://www.npmjs.com/org/cfn-modules) contains all available modules. Let's start with a simple example: An EC2 instance launched into a VPC.
 
 > [Install Node.js 8.x](https://nodejs.org/) if `npm` is not installed on your system 
 
@@ -38,7 +38,7 @@ npm i @cfn-modules/vpc
 npm i @cfn-modules/ec2-instance-amazon-linux
 ```
 
-You use the modules as nested stacks in your CloudFormation template. The [vpc](https://www.npmjs.com/package/@cfn-modules/vpc) modules comes with no required parameters. You can just use it. The [ec2-instance-amazon-linux](https://www.npmjs.com/package/@cfn-modules/ec2-instance-amazon-linux) module comes with the required `VpcModule` parameter to make the connection with the `vpc` module. The `UserData` [parameter](https://www.npmjs.com/package/@cfn-modules/ec2-instance-amazon-linux#parameters) is optional. You can use it to install additional software like the Apache HTTP Server. Create a file named `example.yml` with the following content:
+You use the modules as nested stacks in your CloudFormation template. The [vpc](https://www.npmjs.com/package/@cfn-modules/vpc) module comes with no required parameters. You can just use it. The [ec2-instance-amazon-linux](https://www.npmjs.com/package/@cfn-modules/ec2-instance-amazon-linux) module comes with the required `VpcModule` parameter to make the connection with the `vpc` module. The `UserData` [parameter](https://www.npmjs.com/package/@cfn-modules/ec2-instance-amazon-linux#parameters) is optional. You can use it to install additional software like the Apache HTTP Server. Create a file named `example.yml` with the following content:
 
 ```
 ---
@@ -47,6 +47,11 @@ Resources:
   Vpc:
     Type: 'AWS::CloudFormation::Stack'
     Properties:
+      Parameters:
+        S3Endpoint: 'false' # speed up the example
+        DynamoDBEndpoint: 'false' # speed up the example
+        FlowLog: 'false' # speed up the example
+        NatGateways: 'false' # speed up the example
       TemplateURL: './node_modules/@cfn-modules/vpc/module.yml'
   Instance:
     Type: 'AWS::CloudFormation::Stack'
@@ -88,7 +93,7 @@ Finally, you can create a CloudFormation stack with `aws cloudformation deploy`:
 aws cloudformation deploy --template-file packaged.yml --stack-name ec2-example --capabilities CAPABILITY_IAM
 ```
 
-Creating the stack will take ~10 minutes minutes. You will fond the URL to the demo page in the stack outputs:
+Creating the stack will take ~10 minutes. You can find the URL to the demo page in the stack outputs:
 
 ```
 aws cloudformation describe-stacks --stack-name ec2-example --query "Stacks[0].Outputs"
