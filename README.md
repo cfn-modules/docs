@@ -2,9 +2,9 @@
 
 ![cfn-modules](./logo.png)
 
-Easy going CloudFormation: Modular, production ready, open source.
+Easy-going CloudFormation: Modular, production ready, open source.
 
-> `cfn-modules` is work in progress. Don't use it yet!
+> `cfn-modules` is work in progress. Don't use it in production. You can use it for prototyping!
 
 ## Prerequisites
 * AWS CLI installed ([install](https://docs.aws.amazon.com/cli/latest/userguide/installing.html))
@@ -134,29 +134,31 @@ All modules are production-ready. If no other limitations are documented, they a
 ### Open source
 All modules are licensed under [Apache-2.0](./LICENSE). Commercial use is allowed.
 
+## About
+A [cloudonaut.io](https://cloudonaut.io) project. Engineered by [widdix](https://widdix.net).
+
 ## Open tasks
 
 * [ ] check & document module "Production ready" limitations
-* [ ] Name `cfn-modules`?
 * [ ] Add tests to modules
-* [x] Add linter to modules
-* [ ] ECS Fargate example
-* [ ] ECS example
-* [ ] Typical web application (WordPress?) example
-* [ ] API/method module
-* [ ] `lambdas` rename folder name to something more natural, like `src`
-* [x] module client-sg
-* [x] module rds-postgres
-* [x] module rds-mysql
-* [ ] module rds-aurora-mysql
-* [ ] module elasticache-memcached
-* [ ] module elasticsearch
-* [ ] module ec2-instance (using ImageId as a parameter)
-* [ ] module 1:1:1 Auto Scaling Group based on Amazon Linux
-* [ ] module 1:1:1 Auto Scaling Group based on Amazon Linux 2 (ssh-bastion module should depend on that)
-* [ ] module Auto Scaling Group based on Amazon Linux
-* [ ] module Auto Scaling Group based on Amazon Linux 2
-* [ ] in module's `package.json` files, `"engines" : { "npm" : "~1.0.20" }` can ensure that a certain npm version is used which we likely need to make sure that the dir layout is as assumed
 * [ ] document `npm outdated` to show outdated modules
-* [ ] we will run into issued if npm installs different versions of the same module which will cause a more nested dir structure
-* [x] Example dedicated VPC with ./node_modules/@cfn-modules/vpc/module.yml
+* [ ] we will run into issued if npm installs different versions of the same module which will cause a more nested dir structure (is `yarn` different?)
+* [ ] in module's `package.json` files, `"engines" : { "npm" : "~1.0.20" }` can ensure that a certain npm version is used which we likely need to make sure that the dir layout is as assumed
+* Modules
+    * [ ] lambda-event-source-webhook
+    * [ ] ecs-cluster
+    * [ ] ecs-service ?!
+    * [ ] rds-aurora-mysql
+    * [ ] elasticache-memcached
+    * [ ] elasticsearch
+    * [ ] ec2-instance (using ImageId as a parameter)
+    * [ ] 1:1:1 Auto Scaling Group based on Amazon Linux (EIP)
+    * [ ] 1:1:1 Auto Scaling Group based on Amazon Linux 2 (EIP) (ssh-bastion module should depend on that)
+    * [ ] 1:1:1 Auto Scaling Group (using ImageId as a parameter)(EIP) 
+    * [ ] Auto Scaling Group based on Amazon Linux
+    * [ ] Auto Scaling Group based on Amazon Linux 2
+    * [ ] Auto Scaling Group (using ImageId as a parameter)
+* Examples
+    * [ ] ECS Fargate example
+    * [ ] ECS example
+    * [ ] Typical web application (WordPress?) example
