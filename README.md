@@ -4,8 +4,6 @@
 
 Easy-going CloudFormation: Modular, production ready, open source.
 
-> `cfn-modules` is work in progress.
-
 ## Prerequisites
 * AWS CLI installed ([install](https://docs.aws.amazon.com/cli/latest/userguide/installing.html))
 * npm 3.x installed ([install Node.js 8.x](https://nodejs.org/))
