@@ -4,7 +4,7 @@
 
 Easy-going CloudFormation: Modular, production ready, open source.
 
-> `cfn-modules` is work in progress. Don't use it in production. You can use it for prototyping!
+> `cfn-modules` is work in progress.
 
 ## Prerequisites
 * AWS CLI installed ([install](https://docs.aws.amazon.com/cli/latest/userguide/installing.html))
