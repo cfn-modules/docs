@@ -128,7 +128,7 @@ All modules are production-ready. If no other limitations are documented, they a
 * Secure
     * using the latest operating systems and software components
     * follow the least privilege principle (e.g., IAM policies and Security Groups)
-    * backups enabled
+    * backups of state (not configuration) enabled
     * encryption at-rest enabled
     * encryption in-transit enabled and preferred
 * Operations friendly
@@ -144,7 +144,7 @@ A [cloudonaut.io](https://cloudonaut.io) project. Engineered by [widdix](https:/
 
 ## Open tasks
 
-* [ ] check & document module "Production ready" limitations
+* [ ] double check "Production ready" limitations
 * [ ] Add tests to modules
 * [ ] document `npm outdated` to show outdated modules
 * [ ] we will run into issued if npm installs different versions of the same module which will cause a more nested dir structure (is `yarn` different?)
