@@ -9,6 +9,6 @@
     "@cfn-modules/vpc": "^0.0.28",
     "@cfn-modules/efs-file-system": "^0.0.2",
     "@cfn-modules/client-sg": "^0.0.1",
-    "@cfn-modules/ec2-instance-amazon-linux": "^0.0.15"
+    "@cfn-modules/ec2-instance-amazon-linux": "^0.0.17"
   }
 }

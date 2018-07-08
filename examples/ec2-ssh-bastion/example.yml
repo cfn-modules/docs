@@ -19,7 +19,7 @@ Resources:
     Type: 'AWS::CloudFormation::Stack'
     Properties:
       Parameters:
-        Email: 'michael@widdix.de' # TODO remove before release
+        Email: 'email@domain.com'
       TemplateURL: './node_modules/@cfn-modules/alerting/module.yml'
   Vpc:
     Type: 'AWS::CloudFormation::Stack'
