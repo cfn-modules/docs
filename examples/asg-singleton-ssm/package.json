@@ -1,0 +1,12 @@
+{
+  "name": "cfn-modules-asg-singleton-ssm-example",
+  "version": "0.0.0",
+  "description": "cfn-modules: ASG singleton SSM example",
+  "author": "Michael Wittig <michael@widdix.de>",
+  "license": "Apache-2.0",
+  "private": true,
+  "dependencies": {
+    "@cfn-modules/vpc": "^0.0.28",
+    "@cfn-modules/asg-singleton-amazon-linux2": "^0.0.1"
+  }
+}

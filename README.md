@@ -9,12 +9,15 @@ Easy-going CloudFormation: Modular, production ready, open source.
 * npm 3.x installed ([install Node.js 8.x](https://nodejs.org/))
 
 ## Examples
+* Auto Scaling Group (singleton)
+    * [SSM](./examples/asg-singleton-ssm/)
 * EC2
     * [Mount EBS volume](./examples/ec2-ebs/)
     * [Mount EFS file system](./examples/ec2-efs/)
     * [Connect to MySQL](./examples/ec2-mysql/)
     * [Connect to Postgres](./examples/ec2-postgres/)
     * [SSH bastion](./examples/ec2-ssh-bastion/)
+    * [SSM](./examples/ec2-ssm/)
 * Serverless
     * [Cron](./examples/serverless-cron/)
     * [Auto IAM policies](./examples/serverless-iam/)
@@ -156,7 +159,6 @@ A [cloudonaut.io](https://cloudonaut.io) project. Engineered by [widdix](https:/
     * [ ] elasticsearch
     * [ ] ec2-instance (using ImageId as a parameter)
     * [ ] 1:1:1 Auto Scaling Group based on Amazon Linux (EIP)
-    * [ ] 1:1:1 Auto Scaling Group based on Amazon Linux 2 (EIP) (ssh-bastion module should depend on that)
     * [ ] 1:1:1 Auto Scaling Group (using ImageId as a parameter)(EIP) 
     * [ ] Auto Scaling Group based on Amazon Linux
     * [ ] Auto Scaling Group based on Amazon Linux 2
