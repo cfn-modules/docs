@@ -109,6 +109,36 @@ aws cloudformation wait stack-delete-complete --stack-name ec2-example
 
 Fin. Now, check out more [examples](./examples/)?
 
+## Modules
+
+* [alerting](https://github.com/cfn-modules/alerting)
+* Auto Scaling Group (singleton)
+    * [asg-singleton-amazon-linux2](https://github.com/cfn-modules/asg-singleton-amazon-linux2)
+* [client-sg](https://github.com/cfn-modules/client-sg)
+* [dynamodb-table](https://github.com/cfn-modules/dynamodb-table)
+* [ebs-volume](https://github.com/cfn-modules/ebs-volume)
+* EC2 instance
+    * [ec2-instance-amazon-linux](https://github.com/cfn-modules/ec2-instance-amazon-linux)
+    * [ec2-instance-amazon-linux2](https://github.com/cfn-modules/ec2-instance-amazon-linux2)
+* [efs-file-system](https://github.com/cfn-modules/efs-file-system)
+* [kms-key](https://github.com/cfn-modules/kms-key)
+* Lambda
+    * [lambda-event-source-cron](https://github.com/cfn-modules/lambda-event-source-cron)
+    * [lambda-event-source-sqs-queue](https://github.com/cfn-modules/lambda-event-source-sqs-queue)
+    * [lambda-function](https://github.com/cfn-modules/lambda-function)
+* RDS
+    * [rds-mysql](https://github.com/cfn-modules/rds-mysql)
+    * [rds-postgres](https://github.com/cfn-modules/rds-postgres)
+* Route53
+    * [route53-hosted-zone-private](https://github.com/cfn-modules/route53-hosted-zone-private)
+    * [route53-hosted-zone-public](https://github.com/cfn-modules/route53-hosted-zone-public)
+* [s3-bucket](https://github.com/cfn-modules/s3-bucket)
+* [sqs-queue](https://github.com/cfn-modules/sqs-queue)
+* [ssh-bastion](https://github.com/cfn-modules/ssh-bastion)
+* [vpc](https://github.com/cfn-modules/vpc)
+
+Check out the [module catalog](https://www.npmjs.com/org/cfn-modules) to browse all modules.
+
 ## Why cfn-modules?
 We started with [aws-cf-templates](https://github.com/widdix/aws-cf-templates) in 2015. Three years later, we believe that we have learned enough to come up with a new approach to use CloudFormation more efficient.
 
