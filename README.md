@@ -6,27 +6,40 @@
 
 Easy-going CloudFormation: Modular, production ready, open source.
 
+## Why cfn-modules?
+We started with [aws-cf-templates](https://github.com/widdix/aws-cf-templates) in 2015. Three years later, we believe that we have learned enough to come up with a new approach to use CloudFormation more efficient.
+
+### Modular
+Reusing CloudFormation templates is hard. Most often, templates are initially copied and then modified.
+
+Two problems arise. First, updates to the copy are not applied to the original. Second, updates to the original are not applied to the copy. **In essence: we do not learn from each other!**
+
+By using an easy to use package manager ([npm](https://www.npmjs.com/)) you can install and update `cfn-modules` to spin up complex infrastructure in minuted that just works.
+
+### Production ready
+All modules are production-ready. If no other limitations are documented, they are:
+
+* Highly available
+    * no single point of failure
+* Scalable
+    * increase or decrease the capacity based on utilization
+* Secure
+    * using the latest operating systems and software components
+    * follow the least privilege principle (e.g., IAM policies and Security Groups)
+    * backups of state (not configuration) enabled
+    * encryption at-rest enabled
+    * encryption in-transit enabled and preferred
+* Operations friendly
+    * logging enabled
+    * alerting enabled
+    * updatable
+
+### Open source
+All modules are licensed under [Apache-2.0](./LICENSE). Commercial use is allowed.
+
 ## Prerequisites
 * AWS CLI installed ([install](https://docs.aws.amazon.com/cli/latest/userguide/installing.html))
 * npm 3.x installed ([install Node.js 8.x](https://nodejs.org/))
-
-## Examples
-* Auto Scaling Group (singleton)
-    * [SSM](./examples/asg-singleton-ssm/)
-* EC2
-    * [Mount EBS volume](./examples/ec2-ebs/)
-    * [Mount EFS file system](./examples/ec2-efs/)
-    * [Connect to MySQL](./examples/ec2-mysql/)
-    * [Connect to Postgres](./examples/ec2-postgres/)
-    * [SSH bastion](./examples/ec2-ssh-bastion/)
-    * [SSM](./examples/ec2-ssm/)
-* Serverless
-    * [Cron](./examples/serverless-cron/)
-    * [Auto IAM policies](./examples/serverless-iam/)
-    * [Image resize](./examples/serverless-image-resize/)
-    * [SQS queue](./examples/serverless-sqs-queue/)
-
-Check out the [examples](./examples/) folder to see all examples.
 
 ## Getting started
 
@@ -34,14 +47,14 @@ Check out the [examples](./examples/) folder to see all examples.
 
 > [Install Node.js 8.x](https://nodejs.org/) if `npm` is not installed on your system 
 
-You install the modules using npm:
+Install the modules using npm:
 
 ```
 npm i @cfn-modules/vpc
 npm i @cfn-modules/ec2-instance-amazon-linux
 ```
 
-You use the modules as nested stacks in your CloudFormation template. The [vpc](https://www.npmjs.com/package/@cfn-modules/vpc) module comes with no required parameters. You can just use it. The [ec2-instance-amazon-linux](https://www.npmjs.com/package/@cfn-modules/ec2-instance-amazon-linux) module comes with the required `VpcModule` parameter to make the connection with the `vpc` module. The `UserData` [parameter](https://www.npmjs.com/package/@cfn-modules/ec2-instance-amazon-linux#parameters) is optional. You can use it to install additional software like the Apache HTTP Server. Create a file named `example.yml` with the following content:
+Use the modules as nested stacks in your CloudFormation template. The [vpc](https://www.npmjs.com/package/@cfn-modules/vpc) module comes with no required parameters. The [ec2-instance-amazon-linux](https://www.npmjs.com/package/@cfn-modules/ec2-instance-amazon-linux) module comes with the required `VpcModule` parameter to make the connection with the `vpc` module. The `UserData` [parameter](https://www.npmjs.com/package/@cfn-modules/ec2-instance-amazon-linux#parameters) is optional. Use it to install additional software like the Apache HTTP Server. Create a file named `example.yml` with the following content:
 
 ```
 ---
@@ -72,11 +85,11 @@ Outputs:
     Value: !Sub 'http://${Instance.Outputs.PublicIpAddress}'
 ```
 
-You upload the CloudFormation template and the dependencies to S3 with the `aws cloudformation package` command.
+Upload the CloudFormation template and the dependencies to S3 with the `aws cloudformation package` command.
 
 > [Install AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/installing.html) if `aws` is not installed on your system 
 
-If you use `cfn-modules` the first time, create an S3 bucket now to store the artifacts (otherwise, skip this step). Choose a unique bucket name, e.g. `cfn-modules-$Name-$Region`.
+If you use `cfn-modules` the first time, create an S3 bucket to store the artifacts first (otherwise, skip this step). Choose a unique bucket name, e.g. `cfn-modules-$Name-$Region`.
 
 In the following command, replace `$Name` with a unique name (e.g. your initials or company name), and replace `$Region` with your AWS default region (e.g. `us-east-1`) to create an S3 bucket:
 
@@ -109,7 +122,25 @@ aws cloudformation delete-stack --stack-name ec2-example
 aws cloudformation wait stack-delete-complete --stack-name ec2-example
 ```
 
-Fin. Now, check out more [examples](./examples/)?
+Fin. Check out our examples next.
+
+## Examples
+* Auto Scaling Group (singleton)
+    * [SSM](./examples/asg-singleton-ssm/)
+* EC2
+    * [Mount EBS volume](./examples/ec2-ebs/)
+    * [Mount EFS file system](./examples/ec2-efs/)
+    * [Connect to MySQL](./examples/ec2-mysql/)
+    * [Connect to Postgres](./examples/ec2-postgres/)
+    * [SSH bastion](./examples/ec2-ssh-bastion/)
+    * [SSM](./examples/ec2-ssm/)
+* Serverless
+    * [Cron](./examples/serverless-cron/)
+    * [Auto IAM policies](./examples/serverless-iam/)
+    * [Image resize](./examples/serverless-image-resize/)
+    * [SQS queue](./examples/serverless-sqs-queue/)
+
+Check out the [examples](./examples/) folder to see all examples.
 
 ## Modules
 
@@ -140,37 +171,6 @@ Fin. Now, check out more [examples](./examples/)?
 * [vpc](https://github.com/cfn-modules/vpc)
 
 Check out the [module catalog](https://www.npmjs.com/org/cfn-modules) to browse all modules.
-
-## Why cfn-modules?
-We started with [aws-cf-templates](https://github.com/widdix/aws-cf-templates) in 2015. Three years later, we believe that we have learned enough to come up with a new approach to use CloudFormation more efficient.
-
-### Modular
-Reusing CloudFormation templates is hard. Most often, templates are initially copied and then modified.
-
-Two problems arise. First, updates to the copy are not applied to the original. Second, updates to the original are not applied to the copy. **In essence: we do not learn from each other!**
-
-By using an easy to use package manager ([npm](https://www.npmjs.com/)) you can install and update `cfn-modules` to spin up complex infrastructure in minuted that just works.
-
-### Production ready
-All modules are production-ready. If no other limitations are documented, they are:
-
-* Highly available
-    * no single point of failure
-* Scalable
-    * increase or decrease the capacity based on utilization
-* Secure
-    * using the latest operating systems and software components
-    * follow the least privilege principle (e.g., IAM policies and Security Groups)
-    * backups of state (not configuration) enabled
-    * encryption at-rest enabled
-    * encryption in-transit enabled and preferred
-* Operations friendly
-    * logging enabled
-    * alerting enabled
-    * updatable
-
-### Open source
-All modules are licensed under [Apache-2.0](./LICENSE). Commercial use is allowed.
 
 ## About
 A [cloudonaut.io](https://cloudonaut.io) project. Engineered by [widdix](https://widdix.net).
