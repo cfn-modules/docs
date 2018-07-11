@@ -158,6 +158,7 @@ Check out the [examples](./examples/) folder to see all examples.
 * [kms-key](https://github.com/cfn-modules/kms-key)
 * Lambda
     * [lambda-event-source-cron](https://github.com/cfn-modules/lambda-event-source-cron)
+    * [lambda-event-source-dynamodb-stream](https://github.com/cfn-modules/lambda-event-source-dynamodb-stream)
     * [lambda-event-source-sqs-queue](https://github.com/cfn-modules/lambda-event-source-sqs-queue)
     * [lambda-event-source-webhook](https://github.com/cfn-modules/lambda-event-source-webhook)
     * [lambda-function](https://github.com/cfn-modules/lambda-function)
