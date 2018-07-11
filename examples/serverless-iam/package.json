@@ -7,7 +7,7 @@
   "private": true,
   "dependencies": {
     "@cfn-modules/alerting": "^0.0.5",
-    "@cfn-modules/dynamodb-table": "^0.0.5",
+    "@cfn-modules/dynamodb-table": "^0.0.7",
     "@cfn-modules/lambda-function": "^0.0.18",
     "@cfn-modules/sqs-queue": "^0.0.8",
     "@cfn-modules/kms-key": "^0.0.3",
