@@ -139,6 +139,7 @@ Fin. Check out our examples next.
     * [Auto IAM policies](./examples/serverless-iam/)
     * [Image resize](./examples/serverless-image-resize/)
     * [SQS queue](./examples/serverless-sqs-queue/)
+    * [Webhook](./examples/serverless-webhook/)
 
 Check out the [examples](./examples/) folder to see all examples.
 
@@ -158,6 +159,7 @@ Check out the [examples](./examples/) folder to see all examples.
 * Lambda
     * [lambda-event-source-cron](https://github.com/cfn-modules/lambda-event-source-cron)
     * [lambda-event-source-sqs-queue](https://github.com/cfn-modules/lambda-event-source-sqs-queue)
+    * [lambda-event-source-webhook](https://github.com/cfn-modules/lambda-event-source-webhook)
     * [lambda-function](https://github.com/cfn-modules/lambda-function)
 * RDS
     * [rds-mysql](https://github.com/cfn-modules/rds-mysql)
@@ -183,7 +185,6 @@ A [cloudonaut.io](https://cloudonaut.io) project. Engineered by [widdix](https:/
 * [ ] we will run into issued if npm installs different versions of the same module which will cause a more nested dir structure (is `yarn` different?)
 * [ ] in module's `package.json` files, `"engines" : { "npm" : "~1.0.20" }` can ensure that a certain npm version is used which we likely need to make sure that the dir layout is as assumed
 * Modules
-    * [ ] lambda-event-source-webhook
     * [ ] ecs-cluster
     * [ ] ecs-service ?!
     * [ ] rds-aurora-mysql

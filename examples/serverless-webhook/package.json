@@ -1,0 +1,12 @@
+{
+  "name": "cfn-modules-serverless-webhook-example",
+  "version": "0.0.0",
+  "description": "cfn-modules: Serverless webhook example",
+  "author": "Michael Wittig <michael@widdix.de>",
+  "license": "Apache-2.0",
+  "private": true,
+  "dependencies": {
+    "@cfn-modules/lambda-function": "^0.0.18",
+    "@cfn-modules/lambda-event-source-webhook": "^0.0.1"
+  }
+}
