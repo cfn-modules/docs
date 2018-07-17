@@ -6,7 +6,7 @@
   "license": "Apache-2.0",
   "private": true,
   "dependencies": {
-    "@cfn-modules/lambda-function": "^0.0.18",
+    "@cfn-modules/lambda-function": "^0.0.19",
     "@cfn-modules/sqs-queue": "^0.0.8",
     "@cfn-modules/lambda-event-source-sqs-queue": "^0.0.4"
   }
