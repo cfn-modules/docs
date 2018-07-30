@@ -29,7 +29,7 @@ All modules are production-ready. If no other limitations are documented, they a
     * backups of state (not configuration) enabled
     * encryption at-rest enabled
     * encryption in-transit enabled and preferred
-* Operations friendly
+* Operator-friendly
     * logging enabled
     * alerting enabled
     * updatable
