@@ -39,7 +39,7 @@ All modules are licensed under [Apache-2.0](./LICENSE). Commercial use is allowe
 
 ## Prerequisites
 * AWS CLI installed ([install](https://docs.aws.amazon.com/cli/latest/userguide/installing.html))
-* npm 3.x installed ([install Node.js 8.x](https://nodejs.org/))
+* npm >=5.6 installed ([install Node.js 8.x](https://nodejs.org/))
 
 ## Getting started
 
@@ -109,7 +109,7 @@ Finally, you can create a CloudFormation stack with `aws cloudformation deploy`:
 aws cloudformation deploy --template-file packaged.yml --stack-name ec2-example --capabilities CAPABILITY_IAM
 ```
 
-Creating the stack will take ~10 minutes. You can find the URL to the demo page in the stack outputs:
+Creating the stack will take about 10 minutes. You can find the URL to the demo page in the stack outputs:
 
 ```
 aws cloudformation describe-stacks --stack-name ec2-example --query "Stacks[0].Outputs"
