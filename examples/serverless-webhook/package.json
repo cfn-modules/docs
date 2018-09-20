@@ -6,7 +6,7 @@
   "license": "Apache-2.0",
   "private": true,
   "dependencies": {
-    "@cfn-modules/lambda-function": "^0.0.20",
-    "@cfn-modules/lambda-event-source-webhook": "^0.0.1"
+    "@cfn-modules/lambda-function": "1.0.0",
+    "@cfn-modules/lambda-event-source-webhook": "1.0.0"
   }
 }

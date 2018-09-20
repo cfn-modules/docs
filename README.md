@@ -50,8 +50,8 @@ All modules are licensed under [Apache-2.0](./LICENSE). Commercial use is allowe
 Install the modules using npm:
 
 ```
-npm i @cfn-modules/vpc
-npm i @cfn-modules/ec2-instance-amazon-linux
+npm i @cfn-modules/vpc@1.0.0
+npm i @cfn-modules/ec2-instance-amazon-linux@1.0.0
 ```
 
 Use the modules as nested stacks in your CloudFormation template. The [vpc](https://www.npmjs.com/package/@cfn-modules/vpc) module comes with no required parameters. The [ec2-instance-amazon-linux](https://www.npmjs.com/package/@cfn-modules/ec2-instance-amazon-linux) module comes with the required `VpcModule` parameter to make the connection with the `vpc` module. The `UserData` [parameter](https://www.npmjs.com/package/@cfn-modules/ec2-instance-amazon-linux#parameters) is optional. Use it to install additional software like the Apache HTTP Server. Create a file named `example.yml` with the following content:
@@ -177,27 +177,3 @@ Check out the [module catalog](https://www.npmjs.com/org/cfn-modules) to browse 
 
 ## About
 A [cloudonaut.io](https://cloudonaut.io) project. Engineered by [widdix](https://widdix.net).
-
-## Open tasks
-
-* [ ] double check "Production ready" limitations
-* [ ] Add tests to modules
-* [ ] document `npm outdated` to show outdated modules
-* [ ] we will run into issued if npm installs different versions of the same module which will cause a more nested dir structure (is `yarn` different?)
-* [ ] in module's `package.json` files, `"engines" : { "npm" : "~1.0.20" }` can ensure that a certain npm version is used which we likely need to make sure that the dir layout is as assumed
-* Modules
-    * [ ] ecs-cluster
-    * [ ] ecs-service ?!
-    * [ ] rds-aurora-mysql
-    * [ ] elasticache-memcached
-    * [ ] elasticsearch
-    * [ ] ec2-instance (using ImageId as a parameter)
-    * [ ] 1:1:1 Auto Scaling Group based on Amazon Linux (EIP)
-    * [ ] 1:1:1 Auto Scaling Group (using ImageId as a parameter)(EIP) 
-    * [ ] Auto Scaling Group based on Amazon Linux
-    * [ ] Auto Scaling Group based on Amazon Linux 2
-    * [ ] Auto Scaling Group (using ImageId as a parameter)
-* Examples
-    * [ ] ECS Fargate example
-    * [ ] ECS example
-    * [ ] Typical web application (WordPress?) example

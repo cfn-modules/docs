@@ -6,9 +6,9 @@
   "license": "Apache-2.0",
   "private": true,
   "dependencies": {
-    "@cfn-modules/vpc": "^0.0.30",
-    "@cfn-modules/rds-postgres": "^0.0.4",
-    "@cfn-modules/client-sg": "^0.0.1",
-    "@cfn-modules/ec2-instance-amazon-linux": "^0.0.17"
+    "@cfn-modules/vpc": "1.0.0",
+    "@cfn-modules/rds-postgres": "1.0.0",
+    "@cfn-modules/client-sg": "1.0.0",
+    "@cfn-modules/ec2-instance-amazon-linux": "1.0.0"
   }
 }

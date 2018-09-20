@@ -6,7 +6,7 @@
   "license": "Apache-2.0",
   "private": true,
   "dependencies": {
-    "@cfn-modules/vpc": "^0.0.30",
-    "@cfn-modules/ec2-instance-amazon-linux2": "^0.0.8"
+    "@cfn-modules/vpc": "1.0.0",
+    "@cfn-modules/ec2-instance-amazon-linux2": "1.0.0"
   }
 }
