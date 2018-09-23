@@ -155,10 +155,12 @@ Check out the [examples](./examples/) folder to see all examples.
     * [ec2-instance-amazon-linux](https://github.com/cfn-modules/ec2-instance-amazon-linux)
     * [ec2-instance-amazon-linux2](https://github.com/cfn-modules/ec2-instance-amazon-linux2)
 * [efs-file-system](https://github.com/cfn-modules/efs-file-system)
+* [kinesis-data-stream](https://github.com/cfn-modules/kinesis-data-stream)
 * [kms-key](https://github.com/cfn-modules/kms-key)
 * Lambda
     * [lambda-event-source-cron](https://github.com/cfn-modules/lambda-event-source-cron)
     * [lambda-event-source-dynamodb-stream](https://github.com/cfn-modules/lambda-event-source-dynamodb-stream)
+    * [lambda-event-source-kinesis-data-stream](https://github.com/cfn-modules/lambda-event-source-kinesis-data-stream)
     * [lambda-event-source-sqs-queue](https://github.com/cfn-modules/lambda-event-source-sqs-queue)
     * [lambda-event-source-webhook](https://github.com/cfn-modules/lambda-event-source-webhook)
     * [lambda-function](https://github.com/cfn-modules/lambda-function)
