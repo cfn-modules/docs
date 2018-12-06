@@ -53,6 +53,7 @@ Resources:
           chkconfig httpd on
         IngressTcpPort1: '80'
         ClientSgModule1: !GetAtt 'ClientSg.Outputs.StackName'
+        AmazonLinuxVersion: '2018.03.0.20181116'
       TemplateURL: './node_modules/@cfn-modules/ec2-instance-amazon-linux/module.yml'
 Outputs:
   Url:

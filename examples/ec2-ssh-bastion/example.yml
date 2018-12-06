@@ -54,6 +54,7 @@ Resources:
         BastionModule: !GetAtt 'Bastion.Outputs.StackName'
         HostedZoneModule: !GetAtt 'HostedZone.Outputs.StackName'
         IAMUserSSHAccess: 'true'
+        AmazonLinuxVersion: '2018.03.0.20181116'
       TemplateURL: './node_modules/@cfn-modules/ec2-instance-amazon-linux/module.yml'
 Outputs:
   BastionPublicIpAddress:

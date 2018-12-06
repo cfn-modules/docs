@@ -29,6 +29,7 @@ Resources:
     Properties:
       Parameters:
         VpcModule: !GetAtt 'Vpc.Outputs.StackName'
+        AmazonLinux2Version: '2.0.20181114'
       TemplateURL: './node_modules/@cfn-modules/ec2-instance-amazon-linux2/module.yml'
   AssociationGatherSoftwareInventory:
     Type: 'AWS::SSM::Association'

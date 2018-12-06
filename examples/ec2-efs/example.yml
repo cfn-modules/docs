@@ -46,6 +46,7 @@ Resources:
         IAMUserSSHAccess: 'true'
         ClientSgModule1: !GetAtt 'ClientSg.Outputs.StackName'
         FileSystemModule1: !GetAtt 'FileSystem.Outputs.StackName'
+        AmazonLinuxVersion: '2018.03.0.20181116'
       TemplateURL: './node_modules/@cfn-modules/ec2-instance-amazon-linux/module.yml'
 Outputs:
   PublicIpAddress:
