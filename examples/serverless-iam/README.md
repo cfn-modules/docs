@@ -29,7 +29,7 @@ Checkout the IAM role attached to the Lambda function (Get the role name with `a
         "logs:CreateLogStream",
         "logs:PutLogEvents"
       ],
-      "Resource": "*",
+      "Resource": "arn:aws:logs:u-west-1:***:log-group:serverless-iam-example-LogGroup-YLDPFNGG00XX:*",
       "Effect": "Allow"
     },
     {

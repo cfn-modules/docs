@@ -6,7 +6,7 @@
   "license": "Apache-2.0",
   "private": true,
   "dependencies": {
-    "@cfn-modules/vpc": "1.0.0",
-    "@cfn-modules/asg-singleton-amazon-linux2": "1.0.0"
+    "@cfn-modules/vpc": "1.1.0",
+    "@cfn-modules/asg-singleton-amazon-linux2": "1.2.0"
   }
 }
