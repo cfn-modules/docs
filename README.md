@@ -134,6 +134,8 @@ Fin. Check out our examples next.
     * [Connect to Postgres](./examples/ec2-postgres/)
     * [SSH bastion](./examples/ec2-ssh-bastion/)
     * [SSM](./examples/ec2-ssm/)
+* Fargate
+    * [ALB to single container example](./examples/fargate-alb-single-container)
 * Serverless
     * [Cron](./examples/serverless-cron/)
     * [Auto IAM policies](./examples/serverless-iam/)
@@ -146,6 +148,12 @@ Check out the [examples](./examples/) folder to see all examples.
 ## Modules
 
 * [alerting](https://github.com/cfn-modules/alerting)
+* Load Balancer
+    * [alb](https://github.com/cfn-modules/alb)
+    * [alb-listener](https://github.com/cfn-modules/alb-listener)
+    * [alb-redirect-to-https](https://github.com/cfn-modules/alb-redirect-to-https)
+    * [nlb](https://github.com/cfn-modules/nlb)
+    * [lb-dns-record](https://github.com/cfn-modules/lb-dns-record)
 * Auto Scaling Group (singleton)
     * [asg-singleton-amazon-linux2](https://github.com/cfn-modules/asg-singleton-amazon-linux2)
 * [client-sg](https://github.com/cfn-modules/client-sg)
@@ -154,6 +162,12 @@ Check out the [examples](./examples/) folder to see all examples.
 * EC2 instance
     * [ec2-instance-amazon-linux](https://github.com/cfn-modules/ec2-instance-amazon-linux)
     * [ec2-instance-amazon-linux2](https://github.com/cfn-modules/ec2-instance-amazon-linux2)
+* ECS
+    * [ecs-cluster](https://github.com/cfn-modules/ecs-cluster)
+    * [ecs-alb-target](https://github.com/cfn-modules/ecs-alb-target)
+    * [ecs-nlb-listener-and-target](https://github.com/cfn-modules/ecs-nlb-listener-and-target)
+    * Fargate
+        * [fargate-service](https://github.com/cfn-modules/fargate-service)
 * [efs-file-system](https://github.com/cfn-modules/efs-file-system)
 * [kinesis-data-stream](https://github.com/cfn-modules/kinesis-data-stream)
 * [kms-key](https://github.com/cfn-modules/kms-key)

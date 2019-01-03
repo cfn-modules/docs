@@ -1,0 +1,16 @@
+{
+  "name": "cfn-modules-fargate-alb-single-container-example",
+  "version": "0.0.0",
+  "description": "cfn-modules: Fargate ALB to single container example",
+  "author": "Michael Wittig <michael@widdix.de>",
+  "license": "Apache-2.0",
+  "private": true,
+  "dependencies": {
+    "@cfn-modules/vpc": "1.1.0",
+    "@cfn-modules/ecs-cluster": "1.0.0",
+    "@cfn-modules/alb": "1.0.3",
+    "@cfn-modules/alb-listener": "1.0.0",
+    "@cfn-modules/ecs-alb-target": "1.0.1",
+    "@cfn-modules/fargate-service": "1.0.0"
+  }
+}

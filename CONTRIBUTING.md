@@ -68,3 +68,19 @@ none
 
 #### Outputs
 none
+
+### LoadBalancer (extends: ExposeDnsName)
+
+### Parameters
+none
+
+#### Outputs
+* `CanonicalHostedZoneId`
+
+### Target (extends: ExposeArn, ExposeSecurityGroupId)
+
+#### Parameters
+none
+
+#### Outputs
+none

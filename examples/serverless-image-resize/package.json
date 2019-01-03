@@ -7,7 +7,7 @@
   "private": true,
   "dependencies": {
     "@cfn-modules/lambda-function": "1.1.0",
-    "@cfn-modules/s3-bucket": "1.0.0",
+    "@cfn-modules/s3-bucket": "1.1.0",
     "@cfn-modules/sqs-queue": "1.0.0"
   }
 }
