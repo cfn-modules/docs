@@ -22,7 +22,7 @@ aws cloudformation describe-stacks --stack-name ec2-postgres-example --query "St
 
 Open the URL in your web browser, login with the password `insecure`, and you will see [a database management tool](https://www.adminer.org/).
 
-Don't forget to delete the stack once your are done with the demo:
+Don't forget to delete the stack once you are done with the demo:
 
 ```
 aws cloudformation delete-stack --stack-name ec2-postgres-example

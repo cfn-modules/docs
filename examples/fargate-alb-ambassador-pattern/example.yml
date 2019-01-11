@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 AWSTemplateFormatVersion: '2010-09-09'
-Description: 'cfn-modules: Fargate ALB to single container example'
+Description: 'cfn-modules: Fargate ALB with ambassador pattern example'
 Resources:
   Alerting:
     Type: 'AWS::CloudFormation::Stack'
@@ -65,6 +65,12 @@ Resources:
         VpcModule: !GetAtt 'Vpc.Outputs.StackName'
         TargetModule: !GetAtt 'Target.Outputs.StackName'
         AlertingModule: !GetAtt 'Alerting.Outputs.StackName'
+        AmbassadorImage: 'eeacms/varnish:4.1-6.2'
+        AmbassadorPort: '6081'
+        AmbassadorEnvironment1Key: 'BACKENDS'
+        AmbassadorEnvironment1Value: 'localhost'
+        AmbassadorEnvironment2Key: 'BACKENDS_PORT'
+        AmbassadorEnvironment2Value: '80'
         AppImage: 'widdix/hello:v1'
         AppPort: '80'
       TemplateURL: './node_modules/@cfn-modules/fargate-service/module.yml'

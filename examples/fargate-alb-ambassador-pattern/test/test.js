@@ -10,6 +10,7 @@ test('example', async t => {
     t.log(outputs);
     const res = await axios.get(outputs.Url);
     t.is(res.headers.server, 'Apache/2.4.23 (Unix)');
+    t.true('x-varnish' in res.headers);
     t.true(res.data.includes('It works!'));
   } finally {
     t.log(await cfntest.deleteStack(stackName));

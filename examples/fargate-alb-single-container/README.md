@@ -1,6 +1,28 @@
 # cfn-modules: Fargate ALB to single container example
 
-This example project demonstrates how an ALB can be placed in front of a single Docker container app running on Fargate.
+This example project demonstrates how an ALB can be placed in front of a single Docker container app running on Fargate. The following diagram illustrates the high-level architecture.
+
+```
+   ┌────────────┐   
+   │            │   
+   │            │   
+   │    ALB     │   
+   │            │   
+   │            │   
+   └────────────┘   
+          │         
+          │         
+┌─Service─▼────────┐
+│ ┌──────────────┐ │
+│ │              │ │
+│ │              │ │
+│ │  app         │ │
+│ │  container   │ │
+│ │              │ │
+│ │              │ │
+│ └──────────────┘ │
+└──────────────────┘
+```
 
 ## Prerequisites
 
@@ -22,7 +44,7 @@ aws cloudformation describe-stacks --stack-name fargate-alb-single-container-exa
 
 Open the URL in your web browser.
 
-Don't forget to delete the stack once your are done with the demo:
+Don't forget to delete the stack once you are done with the demo:
 
 ```
 aws cloudformation delete-stack --stack-name fargate-alb-single-container-example
