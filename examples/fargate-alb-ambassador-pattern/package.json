@@ -1,7 +1,7 @@
 {
-  "name": "cfn-modules-fargate-alb-single-container-example",
+  "name": "cfn-modules-fargate-alb-ambassador-pattern-example",
   "version": "0.0.0",
-  "description": "cfn-modules: Fargate ALB to single container example",
+  "description": "cfn-modules: Fargate ALB with ambassador pattern example",
   "author": "Michael Wittig <michael@widdix.de>",
   "license": "Apache-2.0",
   "private": true,

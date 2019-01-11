@@ -135,7 +135,8 @@ Fin. Check out our examples next.
     * [SSH bastion](./examples/ec2-ssh-bastion/)
     * [SSM](./examples/ec2-ssm/)
 * Fargate
-    * [ALB to single container example](./examples/fargate-alb-single-container)
+    * [ALB with ambassador pattern](./examples/fargate-alb-ambassador-pattern/)
+    * [ALB to single container](./examples/fargate-alb-single-container/)
 * Serverless
     * [Cron](./examples/serverless-cron/)
     * [Auto IAM policies](./examples/serverless-iam/)

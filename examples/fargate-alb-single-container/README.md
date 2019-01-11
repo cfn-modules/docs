@@ -1,6 +1,28 @@
 # cfn-modules: Fargate ALB to single container example
 
-This example project demonstrates how an ALB can be placed in front of a single Docker container app running on Fargate.
+This example project demonstrates how an ALB can be placed in front of a single Docker container app running on Fargate. The following diagram illustrates the high-level architecture.
+
+```
+   ┌────────────┐   
+   │            │   
+   │            │   
+   │    ALB     │   
+   │            │   
+   │            │   
+   └────────────┘   
+          │         
+          │         
+┌─Service─▼────────┐
+│ ┌──────────────┐ │
+│ │              │ │
+│ │              │ │
+│ │  app         │ │
+│ │  container   │ │
+│ │              │ │
+│ │              │ │
+│ └──────────────┘ │
+└──────────────────┘
+```
 
 ## Prerequisites
 
