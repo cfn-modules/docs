@@ -15,6 +15,13 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Description: 'cfn-modules: Fargate ALB with ambassador pattern example'
 Resources:
+  Alerting:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        # Email: 'email@domain.com' # uncomment and replace with your email address to receive alerts 
+        # HttpsEndpoint: 'https://api.marbot.io/v1/endpoint/xyz' # or uncommnet and receive alerts in Slack using marbot.io
+      TemplateURL: './node_modules/@cfn-modules/alerting/module.yml'
   Vpc:
     Type: 'AWS::CloudFormation::Stack'
     Properties:
@@ -33,6 +40,7 @@ Resources:
     Properties:
       Parameters:
         VpcModule: !GetAtt 'Vpc.Outputs.StackName'
+        AlertingModule: !GetAtt 'Alerting.Outputs.StackName'
       TemplateURL: './node_modules/@cfn-modules/alb/module.yml'
   AlbListener:
     Type: 'AWS::CloudFormation::Stack'
@@ -47,6 +55,7 @@ Resources:
         AlbModule: !GetAtt 'Alb.Outputs.StackName'
         AlbListenerModule: !GetAtt 'AlbListener.Outputs.StackName'
         VpcModule: !GetAtt 'Vpc.Outputs.StackName'
+        AlertingModule: !GetAtt 'Alerting.Outputs.StackName'
       TemplateURL: './node_modules/@cfn-modules/ecs-alb-target/module.yml'
   Service:
     Type: 'AWS::CloudFormation::Stack'
@@ -55,6 +64,7 @@ Resources:
         ClusterModule: !GetAtt 'Cluster.Outputs.StackName'
         VpcModule: !GetAtt 'Vpc.Outputs.StackName'
         TargetModule: !GetAtt 'Target.Outputs.StackName'
+        AlertingModule: !GetAtt 'Alerting.Outputs.StackName'
         AmbassadorImage: 'eeacms/varnish:4.1-6.2'
         AmbassadorPort: '6081'
         AmbassadorEnvironment1Key: 'BACKENDS'
