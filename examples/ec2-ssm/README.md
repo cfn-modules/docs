@@ -21,7 +21,7 @@ aws cloudformation deploy --template-file packaged.yml --stack-name ec2-ssm-exam
 
 Open the [SSM inventory](https://console.aws.amazon.com/systems-manager/inventory) and search for the EC2 instance. Have a look at the Inventory and Patch tab of the Instance.
 
-Don't forget to delete the stack once your are done with the demo:
+Don't forget to delete the stack once you are done with the demo:
 
 ```
 aws cloudformation delete-stack --stack-name ec2-ssm-example

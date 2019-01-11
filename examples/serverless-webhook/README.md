@@ -22,7 +22,7 @@ aws cloudformation describe-stacks --stack-name serverless-webhook-example --que
 
 Open the URL in your web browser and you will see the string cfn-modules.
 
-Don't forget to delete the stack once your are done with the demo:
+Don't forget to delete the stack once you are done with the demo:
 
 ```
 aws cloudformation delete-stack --stack-name serverless-webhook-example

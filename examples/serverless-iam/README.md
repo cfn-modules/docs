@@ -74,7 +74,7 @@ Checkout the IAM role attached to the Lambda function (Get the role name with `a
 }
 ```
 
-Don't forget to delete the stack once your are done with the demo:
+Don't forget to delete the stack once you are done with the demo:
 
 ```
 aws cloudformation delete-stack --stack-name serverless-iam-example

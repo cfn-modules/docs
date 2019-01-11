@@ -19,7 +19,7 @@ aws cloudformation package --template-file example.yml --s3-bucket $BucketName -
 aws cloudformation deploy --template-file packaged.yml --stack-name serverless-sqs-queue-example --capabilities CAPABILITY_IAM
 ```
 
-Don't forget to delete the stack once your are done with the demo:
+Don't forget to delete the stack once you are done with the demo:
 
 ```
 aws cloudformation delete-stack --stack-name serverless-sqs-queue-example

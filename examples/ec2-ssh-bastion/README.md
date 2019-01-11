@@ -28,7 +28,7 @@ To connect to the EC2 instance via SSH, run the following command. Replace:
 ssh -J $IamUserName@$$BastionPublicIpAddress $TargetPrivateIpAddress
 ```
 
-Don't forget to delete the stack once your are done with the demo:
+Don't forget to delete the stack once you are done with the demo:
 
 ```
 aws cloudformation delete-stack --stack-name ec2-ssh-bastion-example
