@@ -15,10 +15,18 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Description: 'cfn-modules: EC2 EBS example'
 Resources:
+  Alerting:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        Email: 'email@domain.com' # replace with your email address to receive alerts
+        # HttpsEndpoint: 'https://api.marbot.io/v1/endpoint/xyz' # or uncommnet and receive alerts in Slack using marbot.io
+      TemplateURL: './node_modules/@cfn-modules/alerting/module.yml'
   Vpc:
     Type: 'AWS::CloudFormation::Stack'
     Properties:
       Parameters:
+        AlertingModule: !GetAtt 'Alerting.Outputs.StackName'
         S3Endpoint: 'false' # speed up the example
         DynamoDBEndpoint: 'false' # speed up the example
         FlowLog: 'false' # speed up the example
@@ -35,6 +43,7 @@ Resources:
     Properties:
       Parameters:
         VpcModule: !GetAtt 'Vpc.Outputs.StackName'
+        AlertingModule: !GetAtt 'Alerting.Outputs.StackName'
         IAMUserSSHAccess: 'true'
         VolumeModule1: !GetAtt 'Volume.Outputs.StackName'
         AmazonLinuxVersion: '2018.03.0.20181116'

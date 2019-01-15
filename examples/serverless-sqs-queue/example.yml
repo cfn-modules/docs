@@ -15,9 +15,18 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Description: 'cfn-modules: Serverless SQS queue example'
 Resources:
+  Alerting:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        Email: 'email@domain.com' # replace with your email address to receive alerts
+        # HttpsEndpoint: 'https://api.marbot.io/v1/endpoint/xyz' # or uncommnet and receive alerts in Slack using marbot.io
+      TemplateURL: './node_modules/@cfn-modules/alerting/module.yml'
   Queue:
     Type: 'AWS::CloudFormation::Stack'
     Properties:
+      Parameters:
+        AlertingModule: !GetAtt 'Alerting.Outputs.StackName'
       TemplateURL: './node_modules/@cfn-modules/sqs-queue/module.yml'
   QueueEventSource:
     Type: 'AWS::CloudFormation::Stack'
@@ -30,6 +39,7 @@ Resources:
     Type: 'AWS::CloudFormation::Stack'
     Properties:
       Parameters:
+        AlertingModule: !GetAtt 'Alerting.Outputs.StackName'
         Handler: 'example.handler'
         Runtime: 'nodejs8.10'
         ReservedConcurrentExecutions: '5'

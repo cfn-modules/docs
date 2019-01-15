@@ -15,16 +15,25 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Description: 'cfn-modules: Serverless webhook example'
 Resources:
+  Alerting:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        Email: 'email@domain.com' # replace with your email address to receive alerts
+        # HttpsEndpoint: 'https://api.marbot.io/v1/endpoint/xyz' # or uncommnet and receive alerts in Slack using marbot.io
+      TemplateURL: './node_modules/@cfn-modules/alerting/module.yml'
   Webhook:
     Type: 'AWS::CloudFormation::Stack'
     Properties:
       Parameters:
         LambdaModule: !GetAtt 'Function.Outputs.StackName'
+        AlertingModule: !GetAtt 'Alerting.Outputs.StackName'
       TemplateURL: './node_modules/@cfn-modules/lambda-event-source-webhook/module.yml'
   Function:
     Type: 'AWS::CloudFormation::Stack'
     Properties:
       Parameters:
+        AlertingModule: !GetAtt 'Alerting.Outputs.StackName'
         Handler: 'webhook.handler'
         Runtime: 'nodejs8.10'
       TemplateURL: './node_modules/@cfn-modules/lambda-function/module.yml'
