@@ -15,6 +15,13 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Description: 'cfn-modules: Serverless image resize example'
 Resources:
+  Alerting:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        Email: 'email@domain.com' # replace with your email address to receive alerts
+        # HttpsEndpoint: 'https://api.marbot.io/v1/endpoint/xyz' # or uncommnet and receive alerts in Slack using marbot.io
+      TemplateURL: './node_modules/@cfn-modules/alerting/module.yml'
   BucketRaw:
     Type: 'AWS::CloudFormation::Stack'
     Properties:
@@ -32,6 +39,7 @@ Resources:
     Type: 'AWS::CloudFormation::Stack'
     Properties:
       Parameters:
+        AlertingModule: !GetAtt 'Alerting.Outputs.StackName'
         Handler: 'resize.handler'
         Runtime: 'nodejs8.10'
         DependencyModule1: !GetAtt 'BucketResized.Outputs.StackName'

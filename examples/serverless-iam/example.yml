@@ -15,16 +15,19 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Description: 'cfn-modules: Serverless IAM example'
 Resources:
-  Key:
-    Type: 'AWS::CloudFormation::Stack'
-    Properties:
-      TemplateURL: './node_modules/@cfn-modules/kms-key/module.yml'
   Alerting:
     Type: 'AWS::CloudFormation::Stack'
     Properties:
       Parameters:
-        Email: 'email@domain.com'
+        Email: 'email@domain.com' # replace with your email address to receive alerts
+        # HttpsEndpoint: 'https://api.marbot.io/v1/endpoint/xyz' # or uncommnet and receive alerts in Slack using marbot.io
       TemplateURL: './node_modules/@cfn-modules/alerting/module.yml'
+  Key:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        AlertingModule: !GetAtt 'Alerting.Outputs.StackName'
+      TemplateURL: './node_modules/@cfn-modules/kms-key/module.yml'
   Queue:
     Type: 'AWS::CloudFormation::Stack'
     Properties:
