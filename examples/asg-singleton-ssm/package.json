@@ -8,6 +8,6 @@
   "dependencies": {
     "@cfn-modules/alerting": "1.0.1",
     "@cfn-modules/vpc": "1.1.0",
-    "@cfn-modules/asg-singleton-amazon-linux2": "1.3.0"
+    "@cfn-modules/asg-singleton-amazon-linux2": "1.4.0"
   }
 }
