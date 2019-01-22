@@ -8,7 +8,7 @@
   "dependencies": {
     "@cfn-modules/alerting": "1.0.1",
     "@cfn-modules/lambda-function": "1.2.0",
-    "@cfn-modules/s3-bucket": "1.1.0",
+    "@cfn-modules/s3-bucket": "1.1.1",
     "@cfn-modules/sqs-queue": "1.0.0"
   }
 }
