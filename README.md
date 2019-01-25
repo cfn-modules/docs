@@ -187,6 +187,7 @@ Check out the [examples](./examples/) folder to see all examples.
 * Route53
     * [route53-hosted-zone-private](https://github.com/cfn-modules/route53-hosted-zone-private)
     * [route53-hosted-zone-public](https://github.com/cfn-modules/route53-hosted-zone-public)
+    * [route53-hosted-zone-wrapper](https://github.com/cfn-modules/route53-hosted-zone-wrapper)
 * [s3-bucket](https://github.com/cfn-modules/s3-bucket)
 * [sqs-queue](https://github.com/cfn-modules/sqs-queue)
 * [ssh-bastion](https://github.com/cfn-modules/ssh-bastion)
