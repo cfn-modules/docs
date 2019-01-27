@@ -84,3 +84,24 @@ none
 
 #### Outputs
 none
+
+
+## How to
+
+### Add a cfn-module as a dependency to a cfn-module
+
+Unfortunately, we can not rely on `npm` to add cfn-modules as dependencies to other cfn-modules. `npm` will mess up the paths inside `node_modules/`. Therfore, we have to use git submodules to achieve the same.
+
+1. Add the git submodule: `git submodule add https://github.com/cfn-modules/lambda-function node_modules/@cfn-modules/lambda-function`
+2. Add the module name to the `bundledDependencies` in `package.json`: `"bundledDependencies": ["@cfn-modules/lambda-function"]`
+
+### Update a cfn-module dependency
+
+1. Change into the dependency directory: `cd node_modules/@cfn-modules/lambda-function`
+2. Fetch latest git information: `git fetch --all --tags --prune`
+3. Update the version: `git checkout v1.3.1`
+
+### Pull all cfn-module dependencies
+
+1. `git pull`
+2. `git submodule update`
