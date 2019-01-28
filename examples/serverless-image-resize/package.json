@@ -9,6 +9,6 @@
     "@cfn-modules/alerting": "1.0.1",
     "@cfn-modules/lambda-function": "1.3.1",
     "@cfn-modules/s3-bucket": "1.2.0",
-    "@cfn-modules/sqs-queue": "1.0.0"
+    "@cfn-modules/sqs-queue": "1.1.0"
   }
 }
