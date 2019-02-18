@@ -7,7 +7,7 @@
   "private": true,
   "dependencies": {
     "@cfn-modules/alerting": "1.0.1",
-    "@cfn-modules/lambda-function": "1.3.1",
+    "@cfn-modules/lambda-function": "2.0.0",
     "@cfn-modules/sqs-queue": "1.1.0",
     "@cfn-modules/lambda-event-source-sqs-queue": "1.0.0"
   }
