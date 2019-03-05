@@ -179,7 +179,6 @@ Check out the [examples](./examples/) folder to see all examples.
     * [lambda-event-source-sqs-queue](https://github.com/cfn-modules/lambda-event-source-sqs-queue)
     * [lambda-event-source-webhook](https://github.com/cfn-modules/lambda-event-source-webhook)
     * [lambda-function](https://github.com/cfn-modules/lambda-function)
-    * [lambda-layer](https://github.com/cfn-modules/lambda-layer)
 * RDS
     * [rds-aurora-serverless](https://github.com/cfn-modules/rds-aurora-serverless)
     * [rds-mysql](https://github.com/cfn-modules/rds-mysql)
