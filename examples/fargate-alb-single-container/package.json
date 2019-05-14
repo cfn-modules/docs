@@ -7,11 +7,11 @@
   "private": true,
   "dependencies": {
     "@cfn-modules/alerting": "1.0.1",
-    "@cfn-modules/vpc": "1.1.0",
+    "@cfn-modules/vpc": "1.1.1",
     "@cfn-modules/ecs-cluster": "1.1.0",
     "@cfn-modules/alb": "1.0.3",
     "@cfn-modules/alb-listener": "1.0.0",
-    "@cfn-modules/ecs-alb-target": "1.0.2",
-    "@cfn-modules/fargate-service": "1.1.1"
+    "@cfn-modules/ecs-alb-target": "1.0.3",
+    "@cfn-modules/fargate-service": "2.0.0"
   }
 }

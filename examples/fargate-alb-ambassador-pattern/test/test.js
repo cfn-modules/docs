@@ -2,7 +2,7 @@ const test = require('ava');
 const cfntest = require('@cfn-modules/test');
 const axios = require('axios');
 
-test('example', async t => {
+test.serial('example', async t => {
   const stackName = cfntest.stackName();
   try {
     t.log(await cfntest.createStack(`${__dirname}/../example.yml`, stackName, {}));
