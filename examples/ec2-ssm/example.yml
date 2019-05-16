@@ -32,6 +32,35 @@ Resources:
         FlowLog: 'false' # speed up the example
         NatGateways: 'false' # speed up the example
       TemplateURL: './node_modules/@cfn-modules/vpc/module.yml'
+  InstancePolicy:
+    Type: 'AWS::IAM::ManagedPolicy'
+    Properties:
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+        Statement:
+        - Effect: Allow
+          Action:
+          - 'ssm:ListInstanceAssociations' # State Manager by https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up-messageAPIs.html
+          - 'ssm:GetDeployablePatchSnapshotForInstance' # Patch Manager by trial and error
+          Resource: '*'
+        - Effect: Allow # Patch Manager by trial and error
+          Action: 'ssm:PutInventory'
+          Resource: '*'
+        - Effect: Allow # Patch Manager by https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent-minimum-s3-permissions.html
+          Action: 's3:GetObject'
+          Resource:
+          - !Sub 'arn:aws:s3:::aws-ssm-${AWS::Region}/*'
+          - !Sub 'arn:aws:s3:::amazon-ssm-${AWS::Region}/*'
+          - !Sub 'arn:aws:s3:::amazon-ssm-packages-${AWS::Region}/*'
+          - !Sub 'arn:aws:s3:::${AWS::Region}-birdwatcher-prod/*'
+          - !Sub 'arn:aws:s3:::patch-baseline-snapshot-${AWS::Region}/*'
+        - Effect: Allow # AWS-GatherSoftwareInventory
+          Action: 'ssm:GetDocument'
+          Resource: !Sub 'arn:${AWS::Partition}:ssm:${AWS::Region}::document/AWS-GatherSoftwareInventory'
+        - Effect: Allow # AWS-GatherSoftwareInventory
+          Action: 'ssm:UpdateInstanceAssociationStatus'
+          Resource: '*'
   Instance:
     Type: 'AWS::CloudFormation::Stack'
     Properties:
@@ -39,6 +68,7 @@ Resources:
         VpcModule: !GetAtt 'Vpc.Outputs.StackName'
         AlertingModule: !GetAtt 'Alerting.Outputs.StackName'
         AmazonLinux2Version: '2.0.20181114'
+        ManagedPolicyArns: !Ref InstancePolicy
       TemplateURL: './node_modules/@cfn-modules/ec2-instance-amazon-linux2/module.yml'
   AssociationGatherSoftwareInventory:
     Type: 'AWS::SSM::Association'
