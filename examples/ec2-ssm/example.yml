@@ -38,7 +38,6 @@ Resources:
       PolicyDocument:
         Version: '2012-10-17'
         Statement:
-        Statement:
         - Effect: Allow
           Action:
           - 'ssm:ListInstanceAssociations' # State Manager by https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up-messageAPIs.html
