@@ -8,8 +8,8 @@
   "dependencies": {
     "@cfn-modules/alerting": "1.0.1",
     "@cfn-modules/vpc": "1.1.1",
-    "@cfn-modules/rds-mysql": "1.1.0",
+    "@cfn-modules/rds-mysql": "1.2.0",
     "@cfn-modules/client-sg": "1.0.0",
-    "@cfn-modules/ec2-instance-amazon-linux": "2.0.0"
+    "@cfn-modules/ec2-instance-amazon-linux": "2.1.0"
   }
 }
