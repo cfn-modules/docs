@@ -9,7 +9,7 @@
     "@cfn-modules/alerting": "1.0.1",
     "@cfn-modules/dynamodb-table": "1.2.0",
     "@cfn-modules/lambda-function": "2.3.0",
-    "@cfn-modules/sqs-queue": "1.1.0",
+    "@cfn-modules/sqs-queue": "1.1.1",
     "@cfn-modules/kms-key": "1.1.1",
     "@cfn-modules/s3-bucket": "1.4.1"
   }
