@@ -22,18 +22,11 @@ Resources:
         Email: 'email@domain.com' # replace with your email address to receive alerts
         # HttpsEndpoint: 'https://api.marbot.io/v1/endpoint/xyz' # or uncommnet and receive alerts in Slack using marbot.io
       TemplateURL: './node_modules/@cfn-modules/alerting/module.yml'
-  Key:
-    Type: 'AWS::CloudFormation::Stack'
-    Properties:
-      Parameters:
-        AlertingModule: !GetAtt 'Alerting.Outputs.StackName'
-      TemplateURL: './node_modules/@cfn-modules/kms-key/module.yml'
   Queue:
     Type: 'AWS::CloudFormation::Stack'
     Properties:
       Parameters:
         AlertingModule: !GetAtt 'Alerting.Outputs.StackName'
-        KmsKeyModule: !GetAtt 'Key.Outputs.StackName'
         DelaySeconds: '60'
       TemplateURL: './node_modules/@cfn-modules/sqs-queue/module.yml'
   Table:
@@ -41,13 +34,11 @@ Resources:
     Properties:
       Parameters:
         AlertingModule: !GetAtt 'Alerting.Outputs.StackName'
-        Encryption: aws
       TemplateURL: './node_modules/@cfn-modules/dynamodb-table/module.yml'
   Bucket:
     Type: 'AWS::CloudFormation::Stack'
     Properties:
       Parameters:
-        KmsKeyModule: !GetAtt 'Key.Outputs.StackName'
         Versioning: 'false'
       TemplateURL: './node_modules/@cfn-modules/s3-bucket/module.yml'
   Function:
@@ -55,7 +46,6 @@ Resources:
     Properties:
       Parameters:
         AlertingModule: !GetAtt 'Alerting.Outputs.StackName'
-        KmsKeyModule: !GetAtt 'Key.Outputs.StackName'
         Handler: 'example.handler'
         Runtime: 'nodejs8.10'
         DependencyModule1: !GetAtt 'Queue.Outputs.StackName'
