@@ -12,6 +12,6 @@
     "@cfn-modules/alb": "1.0.3",
     "@cfn-modules/alb-listener": "1.0.0",
     "@cfn-modules/ecs-alb-target": "1.0.3",
-    "@cfn-modules/fargate-service": "2.1.0"
+    "@cfn-modules/fargate-service": "2.2.0"
   }
 }
