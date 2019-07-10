@@ -181,6 +181,7 @@ Check out the [examples](./examples/) folder to see all examples.
     * [lambda-function](https://github.com/cfn-modules/lambda-function)
 * RDS
     * [rds-aurora-serverless](https://github.com/cfn-modules/rds-aurora-serverless)
+    * [rds-aurora-serverless-postgres](https://github.com/cfn-modules/rds-aurora-serverless-postgres) 
     * [rds-mysql](https://github.com/cfn-modules/rds-mysql)
     * [rds-postgres](https://github.com/cfn-modules/rds-postgres)
 * Route53
