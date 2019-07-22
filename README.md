@@ -158,6 +158,7 @@ Check out the [examples](./examples/) folder to see all examples.
 * Auto Scaling Group (singleton)
     * [asg-singleton-amazon-linux2](https://github.com/cfn-modules/asg-singleton-amazon-linux2)
 * [client-sg](https://github.com/cfn-modules/client-sg)
+* [cloudwatch-dashboard](https://github.com/cfn-modules/cloudwatch-dashboard)
 * [dynamodb-table](https://github.com/cfn-modules/dynamodb-table)
 * [ebs-volume](https://github.com/cfn-modules/ebs-volume)
 * EC2 instance
