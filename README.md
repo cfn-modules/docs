@@ -4,7 +4,7 @@
 
 # cfn-modules User Guide
 
-Easy-going CloudFormation: Modular, production ready, open source.
+Rapid CloudFormation: Modular, production ready, open source.
 
 ## Why cfn-modules?
 We started with [aws-cf-templates](https://github.com/widdix/aws-cf-templates) in 2015. Three years later, we believe that we have learned enough to come up with a new approach to use CloudFormation more efficient.
