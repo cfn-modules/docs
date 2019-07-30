@@ -9,6 +9,6 @@
     "@cfn-modules/alerting": "1.0.1",
     "@cfn-modules/vpc": "1.1.1",
     "@cfn-modules/ebs-volume": "1.1.0",
-    "@cfn-modules/ec2-instance-amazon-linux": "2.1.0"
+    "@cfn-modules/ec2-instance-amazon-linux": "2.2.0"
   }
 }
