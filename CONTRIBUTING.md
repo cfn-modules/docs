@@ -104,4 +104,4 @@ Unfortunately, we can not rely on `npm` to add cfn-modules as dependencies to ot
 ### Pull all cfn-module dependencies
 
 1. `git pull`
-2. `git submodule update`
+2. `git submodule update --init --recursive`
