@@ -39,13 +39,13 @@ All modules are licensed under [Apache-2.0](./LICENSE). Commercial use is allowe
 
 ## Prerequisites
 * AWS CLI installed ([install](https://docs.aws.amazon.com/cli/latest/userguide/installing.html))
-* npm >=5.6 installed ([install Node.js 8.x](https://nodejs.org/))
+* npm >=5.6 installed ([install Node.js 10.x](https://nodejs.org/))
 
 ## Getting started
 
 `cfn-modules` are installed and updated with the package manager [npm](https://www.npmjs.com/). The [module catalog](https://www.npmjs.com/org/cfn-modules) contains all available modules. Let's start with a simple example: An EC2 instance launched into a VPC.
 
-> [Install Node.js 8.x](https://nodejs.org/) if `npm` is not installed on your system 
+> [Install Node.js 10.x](https://nodejs.org/) if `npm` is not installed on your system 
 
 Install the modules using npm:
 
