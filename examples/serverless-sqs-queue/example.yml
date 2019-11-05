@@ -41,7 +41,7 @@ Resources:
       Parameters:
         AlertingModule: !GetAtt 'Alerting.Outputs.StackName'
         Handler: 'example.handler'
-        Runtime: 'nodejs8.10'
+        Runtime: 'nodejs10.x'
         ReservedConcurrentExecutions: '5'
       TemplateURL: './node_modules/@cfn-modules/lambda-function/module.yml'
 Outputs:

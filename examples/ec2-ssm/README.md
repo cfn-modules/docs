@@ -4,7 +4,7 @@ This example project demonstrates how an EC2 instance can be managed by SSM. Eve
 
 ## Prerequisites
 
-1. [Install Node.js 8.x](https://nodejs.org/)
+1. [Install Node.js 10.x](https://nodejs.org/)
 2. Create an S3 bucket where [aws cloudformation package](https://docs.aws.amazon.com/cli/latest/reference/cloudformation/package.html) uploads the artifacts.
     1. Choose a unique bucket name, e.g. `BucketName=cfn-modules-$Name-$Region`
     2. Replace `$Name` with a unique name (e.g. your initials or company name)

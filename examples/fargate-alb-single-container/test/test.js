@@ -1,6 +1,5 @@
 const test = require('ava');
 const cfntest = require('@cfn-modules/test');
-const axios = require('axios');
 
 test.serial('example', async t => {
   const stackName = cfntest.stackName();
@@ -8,7 +7,7 @@ test.serial('example', async t => {
     t.log(await cfntest.createStack(`${__dirname}/../example.yml`, stackName, {}));
     const outputs = await cfntest.getStackOutputs(stackName);
     t.log(outputs);
-    const res = await axios.get(outputs.Url);
+    const res = await cfntest.probeHttpGet^(outputs.Url);
     t.is(res.headers.server, 'Apache/2.4.23 (Unix)');
     t.true(res.data.includes('It works!'));
   } finally {

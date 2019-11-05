@@ -36,5 +36,5 @@ Resources:
       Parameters:
         AlertingModule: !GetAtt 'Alerting.Outputs.StackName'
         Handler: 'cron.handler'
-        Runtime: 'nodejs8.10'
+        Runtime: 'nodejs10.x'
       TemplateURL: './node_modules/@cfn-modules/lambda-function/module.yml'

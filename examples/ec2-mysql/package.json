@@ -1,6 +1,6 @@
 {
   "name": "cfn-modules-ec2-mysql-example",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "cfn-modules: EC2 MySQL example",
   "author": "Michael Wittig <michael@widdix.de>",
   "license": "Apache-2.0",
