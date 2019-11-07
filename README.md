@@ -159,6 +159,7 @@ Check out the [examples](./examples/) folder to see all examples.
     * [asg-singleton-amazon-linux2](https://github.com/cfn-modules/asg-singleton-amazon-linux2)
 * [client-sg](https://github.com/cfn-modules/client-sg)
 * [cloudwatch-dashboard](https://github.com/cfn-modules/cloudwatch-dashboard)
+* [cognito-userpool](https://github.com/cfn-modules/cognito-userpool)
 * [dynamodb-table](https://github.com/cfn-modules/dynamodb-table)
 * [ebs-volume](https://github.com/cfn-modules/ebs-volume)
 * EC2 instance
@@ -169,8 +170,10 @@ Check out the [examples](./examples/) folder to see all examples.
     * [ecs-alb-target](https://github.com/cfn-modules/ecs-alb-target)
     * [ecs-nlb-listener-and-target](https://github.com/cfn-modules/ecs-nlb-listener-and-target)
     * Fargate
+        * [fargate-scheduled-task](https://github.com/cfn-modules/fargate-scheduled-task)
         * [fargate-service](https://github.com/cfn-modules/fargate-service)
 * [efs-file-system](https://github.com/cfn-modules/efs-file-system)
+* [elasticache-redis](https://github.com/cfn-modules/elasticache-redis)
 * [kinesis-data-stream](https://github.com/cfn-modules/kinesis-data-stream)
 * [kms-key](https://github.com/cfn-modules/kms-key)
 * Lambda
