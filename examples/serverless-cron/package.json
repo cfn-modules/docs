@@ -7,7 +7,7 @@
   "private": true,
   "dependencies": {
     "@cfn-modules/alerting": "1.2.0",
-    "@cfn-modules/lambda-function": "2.5.0",
+    "@cfn-modules/lambda-function": "2.6.0",
     "@cfn-modules/lambda-event-source-cron": "1.1.0"
   }
 }
