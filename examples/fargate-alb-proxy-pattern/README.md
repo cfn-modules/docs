@@ -1,6 +1,6 @@
 # cfn-modules: Fargate ALB with proxy pattern example
 
-This example project demonstrates how an ALB can be placed in front of two DOcker containers running on Fargate. The following diagram illustrates the high-level architecture.
+This example project demonstrates how an ALB can be placed in front of two Docker containers running on Fargate. The following diagram illustrates the high-level architecture.
 
 ```
               ┌────────────┐               
