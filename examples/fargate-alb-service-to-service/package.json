@@ -1,0 +1,18 @@
+{
+  "name": "cfn-modules-fargate-alb-service-to-service-example",
+  "version": "1.0.0",
+  "description": "cfn-modules: Fargate ALB service to service example",
+  "author": "Michael Wittig <michael@widdix.de>",
+  "license": "Apache-2.0",
+  "private": true,
+  "dependencies": {
+    "@cfn-modules/alerting": "1.2.0",
+    "@cfn-modules/vpc": "1.2.0",
+    "@cfn-modules/ecs-cluster": "1.1.0",
+    "@cfn-modules/alb": "1.0.4",
+    "@cfn-modules/alb-listener": "1.1.0",
+    "@cfn-modules/ecs-alb-target": "1.2.0",
+    "@cfn-modules/fargate-service": "2.7.0",
+    "@cfn-modules/client-sg": "1.0.0"
+  }
+}

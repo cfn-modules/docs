@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "dependencies": {
+    "eslint": "6.6.0",
+    "ava": "2.4.0",
+    "@cfn-modules/test": "0.7.3"
+  },
+  "scripts": {
+    "test": "eslint . && ava -c 4 *.js"
+  }
+}
