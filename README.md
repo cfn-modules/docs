@@ -136,6 +136,7 @@ Fin. Check out our examples next.
     * [SSM](./examples/ec2-ssm/)
 * Fargate
     * [ALB with proxy pattern](./examples/fargate-alb-proxy-pattern/)
+    * [ALB service to service](./examples/fargate-alb-service-to-service/)
     * [ALB to single container](./examples/fargate-alb-single-container/)
 * Serverless
     * [Cron](./examples/serverless-cron/)

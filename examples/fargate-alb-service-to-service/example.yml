@@ -1,0 +1,118 @@
+---
+# Copyright 2018 widdix GmbH
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'cfn-modules: Fargate ALB service to service example'
+Resources:
+  Alerting:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        Email: 'email@domain.com' # replace with your email address to receive alerts
+        # HttpsEndpoint: 'https://api.marbot.io/v1/endpoint/xyz' # or uncommnet and receive alerts in Slack using marbot.io
+      TemplateURL: './node_modules/@cfn-modules/alerting/module.yml'
+  Vpc:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        AlertingModule: !GetAtt 'Alerting.Outputs.StackName'
+        S3Endpoint: 'false' # speed up the example
+        DynamoDBEndpoint: 'false' # speed up the example
+        FlowLog: 'false' # speed up the example
+        NatGateways: 'false' # speed up the example
+      TemplateURL: './node_modules/@cfn-modules/vpc/module.yml'
+  Cluster:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      TemplateURL: './node_modules/@cfn-modules/ecs-cluster/module.yml'
+  PublicAlb:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        VpcModule: !GetAtt 'Vpc.Outputs.StackName'
+        AlertingModule: !GetAtt 'Alerting.Outputs.StackName'
+      TemplateURL: './node_modules/@cfn-modules/alb/module.yml'
+  PublicAlbListener:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        AlbModule: !GetAtt 'PublicAlb.Outputs.StackName'
+      TemplateURL: './node_modules/@cfn-modules/alb-listener/module.yml'
+  PublicTarget:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        AlbModule: !GetAtt 'PublicAlb.Outputs.StackName'
+        AlbListenerModule: !GetAtt 'PublicAlbListener.Outputs.StackName'
+        VpcModule: !GetAtt 'Vpc.Outputs.StackName'
+        AlertingModule: !GetAtt 'Alerting.Outputs.StackName'
+      TemplateURL: './node_modules/@cfn-modules/ecs-alb-target/module.yml'
+  PublicService:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        ClusterModule: !GetAtt 'Cluster.Outputs.StackName'
+        VpcModule: !GetAtt 'Vpc.Outputs.StackName'
+        TargetModule: !GetAtt 'PublicTarget.Outputs.StackName'
+        AlertingModule: !GetAtt 'Alerting.Outputs.StackName'
+        ClientSgModule1: !GetAtt 'PrivateServiceClientSg.Outputs.StackName'
+        AppImage: 'instal/nginx-proxy-pass-dockerize:1.2'
+        AppPort: '8080'
+        AppEnvironment1Key: 'NGINX_UPSTREAM_SERVER'
+        AppEnvironment1Value: !Sub '${PrivateAlb.Outputs.DnsName}:80'
+      TemplateURL: './node_modules/@cfn-modules/fargate-service/module.yml'
+  PrivateServiceClientSg:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        VpcModule: !GetAtt 'Vpc.Outputs.StackName'
+      TemplateURL: './node_modules/@cfn-modules/client-sg/module.yml'
+  PrivateAlb:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        VpcModule: !GetAtt 'Vpc.Outputs.StackName'
+        AlertingModule: !GetAtt 'Alerting.Outputs.StackName'
+        Scheme: internal
+      TemplateURL: './node_modules/@cfn-modules/alb/module.yml'
+  PrivateAlbListener:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        AlbModule: !GetAtt 'PrivateAlb.Outputs.StackName'
+        ClientSgModule: !GetAtt 'PrivateServiceClientSg.Outputs.StackName'
+      TemplateURL: './node_modules/@cfn-modules/alb-listener/module.yml'
+  PrivateTarget:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        AlbModule: !GetAtt 'PrivateAlb.Outputs.StackName'
+        AlbListenerModule: !GetAtt 'PrivateAlbListener.Outputs.StackName'
+        VpcModule: !GetAtt 'Vpc.Outputs.StackName'
+        AlertingModule: !GetAtt 'Alerting.Outputs.StackName'
+      TemplateURL: './node_modules/@cfn-modules/ecs-alb-target/module.yml'
+  PrivateService:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        ClusterModule: !GetAtt 'Cluster.Outputs.StackName'
+        VpcModule: !GetAtt 'Vpc.Outputs.StackName'
+        TargetModule: !GetAtt 'PrivateTarget.Outputs.StackName'
+        AlertingModule: !GetAtt 'Alerting.Outputs.StackName'
+        AppImage: 'widdix/hello:v1'
+        AppPort: '80'
+      TemplateURL: './node_modules/@cfn-modules/fargate-service/module.yml'
+Outputs:
+  Url:
+    Value: !Sub 'http://${PublicAlb.Outputs.DnsName}'
