@@ -41,7 +41,7 @@ Resources:
       Parameters:
         AlertingModule: !GetAtt 'Alerting.Outputs.StackName'
         Handler: 'resize.handler'
-        Runtime: 'nodejs10.x'
+        Runtime: 'nodejs12.x'
         DependencyModule1: !GetAtt 'BucketResized.Outputs.StackName'
       TemplateURL: './node_modules/@cfn-modules/lambda-function/module.yml'
 Outputs:
