@@ -14,7 +14,7 @@ Reusing CloudFormation templates is hard. Most often, templates are initially co
 
 Two problems arise. First, updates to the copy are not applied to the original. Second, updates to the original are not applied to the copy. **In essence: we do not learn from each other!**
 
-By using an easy to use package manager ([npm](https://www.npmjs.com/)) you can install and update `cfn-modules` to spin up complex infrastructure in minuted that just works.
+By using an easy to use package manager ([npm](https://www.npmjs.com/)) you can install and update `cfn-modules` to spin up complex infrastructure in minutes that just works.
 
 ### Production ready
 All modules are production-ready. If no other limitations are documented, they are:
