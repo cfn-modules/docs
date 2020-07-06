@@ -149,6 +149,7 @@ Check out the [examples](./examples/) folder to see all examples.
 
 ## Modules
 
+* [acm-wildcard-certificate-public](https://github.com/cfn-modules/acm-wildcard-certificate-public)
 * [alerting](https://github.com/cfn-modules/alerting)
 * Load Balancer
     * [alb](https://github.com/cfn-modules/alb)
