@@ -26,5 +26,4 @@ jobs:
 
     - name: license
       run: |
-        grep -q "LICENSE-2.0" module.yml
         find examples -type f -name example.yml -not -name .eslintrc.yml | while read file; do set -ex && grep -q "LICENSE-2.0" "$file"; done;
