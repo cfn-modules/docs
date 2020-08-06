@@ -7,7 +7,7 @@
   "private": true,
   "dependencies": {
     "@cfn-modules/alerting": "1.2.0",
-    "@cfn-modules/vpc": "1.2.0",
+    "@cfn-modules/vpc": "1.3.0",
     "@cfn-modules/efs-file-system": "1.2.0",
     "@cfn-modules/client-sg": "1.0.0",
     "@cfn-modules/ec2-instance-amazon-linux": "2.4.0"

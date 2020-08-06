@@ -1,11 +1,18 @@
 {
   "private": true,
   "dependencies": {
-    "eslint": "6.6.0",
-    "ava": "2.4.0",
-    "@cfn-modules/test": "0.7.3"
+    "eslint": "7.6.0",
+    "ava": "3.11.1",
+    "@cfn-modules/test": "0.8.0"
   },
   "scripts": {
     "test": "eslint . && ava -c 4 *.js"
+  },
+  "ava": {
+    "files": [
+      "*.js"
+    ],
+    "concurrency": 4,
+    "timeout": "2h"
   }
 }

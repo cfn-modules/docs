@@ -7,9 +7,9 @@ for example in ../examples/*; do
 		echo "$example"
 		cd $example
 		if [ -d "test" ]; then
-			npm i
+			npm ci
 			cd test/
-			npm i
+			npm ci
 			npm test
 		fi
 	)
