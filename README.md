@@ -1,6 +1,5 @@
 ![cfn-modules](./logo.png)
 
-[![Build Status](https://travis-ci.org/cfn-modules/docs.svg?branch=master)](https://travis-ci.org/cfn-modules/docs)
 
 # cfn-modules User Guide
 
