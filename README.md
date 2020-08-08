@@ -1,6 +1,5 @@
 ![cfn-modules](./logo.png)
 
-
 # cfn-modules User Guide
 
 Rapid CloudFormation: Modular, production ready, open source.
