@@ -20,7 +20,7 @@ Resources:
     Properties:
       Parameters:
         Email: 'email@domain.com' # replace with your email address to receive alerts
-        # HttpsEndpoint: 'https://api.marbot.io/v1/endpoint/xyz' # or uncommnet and receive alerts in Slack using marbot.io
+        # HttpsEndpoint: 'https://api.marbot.io/v1/endpoint/xyz' # or uncommnet and receive alerts in Slack or Microsoft Teams using marbot.io
       TemplateURL: './node_modules/@cfn-modules/alerting/module.yml'
   BucketRaw:
     Type: 'AWS::CloudFormation::Stack'
