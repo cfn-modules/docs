@@ -99,7 +99,7 @@ Unfortunately, we can not rely on `npm` to add cfn-modules as dependencies to ot
 
 1. Change into the dependency directory: `cd node_modules/@cfn-modules/lambda-function`
 2. Fetch latest git information: `git fetch`
-3. Update the version: `git merge origin/master`
+3. Update the version: `git merge vx.y.z`
 4. Remove `test/package-lock.json`
 5. `cd test/ && npm i`
 
