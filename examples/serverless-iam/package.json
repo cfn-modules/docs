@@ -6,7 +6,7 @@
   "license": "Apache-2.0",
   "private": true,
   "dependencies": {
-    "@cfn-modules/alerting": "1.2.0",
+    "@cfn-modules/alerting": "1.2.1",
     "@cfn-modules/dynamodb-table": "1.6.0",
     "@cfn-modules/lambda-function": "2.6.0",
     "@cfn-modules/sqs-queue": "1.2.0",
