@@ -1,0 +1,15 @@
+{
+  "name": "cfn-modules-msk-example",
+  "version": "1.0.0",
+  "description": "cfn-modules: MSK cluster example",
+  "author": "Michael Wittig <michael@widdix.de>",
+  "license": "Apache-2.0",
+  "private": true,
+  "dependencies": {
+    "@cfn-modules/alerting": "1.2.2",
+    "@cfn-modules/vpc": "1.3.0",
+    "@cfn-modules/msk-cluster": "1.0.1",
+    "@cfn-modules/client-sg": "1.0.0",
+    "@cfn-modules/ssh-bastion": "1.4.4"
+  }
+}
