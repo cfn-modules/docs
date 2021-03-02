@@ -38,27 +38,40 @@ Resources:
       Parameters:
         VpcModule: !GetAtt 'Vpc.Outputs.StackName'
       TemplateURL: './node_modules/@cfn-modules/client-sg/module.yml'
-  Bastion:
-    Type: 'AWS::CloudFormation::Stack'
-    Properties:
-      Parameters:
-        VpcModule: !GetAtt 'Vpc.Outputs.StackName'
-        AlertingModule: !GetAtt 'Alerting.Outputs.StackName'
-        IAMUserSSHAccess: 'true'
-      TemplateURL: './node_modules/@cfn-modules/ssh-bastion/module.yml'
   Cluster:
     Type: 'AWS::CloudFormation::Stack'
     Properties:
       Parameters:
         VpcModule: !GetAtt 'Vpc.Outputs.StackName'
         ClientSgModule: !GetAtt 'ClientSg.Outputs.StackName'
-        BastionModule: !GetAtt 'Bastion.Outputs.StackName'
         AlertingModule: !GetAtt 'Alerting.Outputs.StackName'
         NumberOfBrokerNodes: !GetAtt 'Vpc.Outputs.NumberOfAvailabilityZones'
         KafkaVersion: '2.2.1'
         InstanceType: 'kafka.t3.small'
         EBSVolumeSize: '10'
       TemplateURL: './node_modules/@cfn-modules/msk-cluster/module.yml'
+  InstancePolicy:
+    Type: 'AWS::IAM::ManagedPolicy'
+    Properties:
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+        - Effect: Allow
+          Action:
+          - 'kafka:DescribeCluster'
+          - 'kafka:GetBootstrapBrokers'
+          Resource: '*'
+  Instance:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      Parameters:
+        VpcModule: !GetAtt 'Vpc.Outputs.StackName'
+        AlertingModule: !GetAtt 'Alerting.Outputs.StackName'
+        ClientSgModule1: !GetAtt 'ClientSg.Outputs.StackName'
+        AmazonLinux2Version: '2.0.20190508'
+        InstanceType: 't3.small'
+        ManagedPolicyArns: !Ref InstancePolicy
+      TemplateURL: './node_modules/@cfn-modules/ec2-instance-amazon-linux2/module.yml'
 Outputs:
   ClusterArn:
-    Value: !Sub 'http://${Cluster.Outputs.Arn}'
+    Value: !GetAtt 'Cluster.Outputs.Arn'
