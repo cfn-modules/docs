@@ -47,7 +47,7 @@ Resources:
       Parameters:
         AlertingModule: !GetAtt 'Alerting.Outputs.StackName'
         Handler: 'example.handler'
-        Runtime: 'nodejs12.x'
+        Runtime: 'nodejs14.x'
         DependencyModule1: !GetAtt 'Queue.Outputs.StackName'
         DependencyModule2: !GetAtt 'Table.Outputs.StackName'
         DependencyModule3: !GetAtt 'Bucket.Outputs.StackName'
