@@ -11,8 +11,9 @@ test.serial('example', async t => {
     const outputs = await cfntest.getStackOutputs(stackName);
     t.log(outputs);
     const res = await cfntest.probeHttpGet(outputs.Url);
-    t.is(res.headers.server, 'Apache/2.4.23 (Unix)');
-    t.true(res.data.includes('It works!'));
+    t.log(res.statusCode);
+    t.log(res.body);
+    t.is(res.statusCode, 302);
   } finally {
     t.log(await cfntest.deleteStack(stackName));
     t.pass();
