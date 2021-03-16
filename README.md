@@ -136,6 +136,7 @@ Fin. Check out our examples next.
     * [ALB with proxy pattern](./examples/fargate-alb-proxy-pattern/)
     * [ALB service to service](./examples/fargate-alb-service-to-service/)
     * [ALB to single container](./examples/fargate-alb-single-container/)
+    * [ALB with Cognito auth](./examples/examples/fargate-alb-auth-cognito/)
 * Serverless
     * [Cron](./examples/serverless-cron/)
     * [Auto IAM policies](./examples/serverless-iam/)
