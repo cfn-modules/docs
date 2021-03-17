@@ -5,8 +5,8 @@ test.serial('example', async t => {
   const stackName = cfntest.stackName();
   try {
     t.log(await cfntest.createStack(`${__dirname}/../example.yml`, stackName, {
-      "HostedZoneId": "Z08057981AMLWUWNFCQLS",
-      "SubDomainNameWithDot": "fargate-alb-auth-cognito."
+      'HostedZoneId': 'Z08057981AMLWUWNFCQLS',
+      'SubDomainNameWithDot': 'fargate-alb-auth-cognito.'
     }));
     const outputs = await cfntest.getStackOutputs(stackName);
     t.log(outputs);
