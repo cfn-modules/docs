@@ -11,9 +11,8 @@ test.serial('example', async t => {
     const outputs = await cfntest.getStackOutputs(stackName);
     t.log(outputs);
     const res = await cfntest.probeHttpGet(outputs.Url);
-    t.log(res.statusCode);
-    t.log(res.body);
-    t.is(res.statusCode, 302);
+    t.log(JSON.stringify(res));
+    t.is(res.status, 302);
   } finally {
     t.log(await cfntest.deleteStack(stackName));
     t.pass();
