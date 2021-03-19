@@ -11,7 +11,7 @@ test.serial('example', async t => {
     const outputs = await cfntest.getStackOutputs(stackName);
     t.log(outputs);
     const res = await cfntest.probeHttpGet(outputs.Url);
-    t.log(res.data);
+    t.true(res.data.includes('Sign in with your email and password'));
     t.is(res.status, 200);
   } finally {
     t.log(await cfntest.deleteStack(stackName));
