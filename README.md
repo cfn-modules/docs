@@ -133,10 +133,10 @@ Fin. Check out our examples next.
     * [SSH bastion](./examples/ec2-ssh-bastion/)
     * [SSM](./examples/ec2-ssm/)
 * Fargate
+    * [ALB with Cognito auth](./examples/fargate-alb-auth-cognito/)
     * [ALB with proxy pattern](./examples/fargate-alb-proxy-pattern/)
     * [ALB service to service](./examples/fargate-alb-service-to-service/)
     * [ALB to single container](./examples/fargate-alb-single-container/)
-    * [ALB with Cognito auth](./examples/examples/fargate-alb-auth-cognito/)
 * [MSK cluster](./examples/msk-cluster/)
 * Serverless
     * [Cron](./examples/serverless-cron/)
