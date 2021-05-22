@@ -77,13 +77,13 @@ none
 #### Outputs
 * `CanonicalHostedZoneId`
 
-### Target (extends: ExposeArn, ExposeSecurityGroupId)
+### Target (extends: ExposeArn, ExposeName, ExposeSecurityGroupId)
 
 #### Parameters
 none
 
 #### Outputs
-none
+* `FullName`
 
 
 ## How to
