@@ -55,7 +55,6 @@ Resources:
       Parameters:
         VpcModule: !GetAtt 'Vpc.Outputs.StackName'
         AlertingModule: !GetAtt 'Alerting.Outputs.StackName'
-        IAMUserSSHAccess: 'true'
         UserData: |
           yum install -y httpd24 php70 php70-pgsql
           wget -O  /var/www/html/index.php https://github.com/vrana/adminer/releases/download/v4.6.3/adminer-4.6.3.php
