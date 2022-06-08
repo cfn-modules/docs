@@ -16,12 +16,12 @@ jobs:
 
     - name: yamlllint
       run: |
-        pip install yamllint==1.24.2
+        pip install yamllint==1.26.3
         find examples -type f -name example.yml | while read file; do set -ex && yamllint "$file"; done;
 
     - name: cfn-lint
       run: |
-        pip install cfn-lint==0.34.0
+        pip install cfn-lint==0.59.1
         find examples -type f -name example.yml | while read file; do set -ex && cfn-lint -t "$file"; done;
 
     - name: license
