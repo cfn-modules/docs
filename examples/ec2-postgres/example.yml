@@ -45,9 +45,11 @@ Resources:
         VpcModule: !GetAtt 'Vpc.Outputs.StackName'
         ClientSgModule: !GetAtt 'ClientSg.Outputs.StackName'
         AlertingModule: !GetAtt 'Alerting.Outputs.StackName'
+        DBInstanceClass: 'db.t3.micro '
         DBMasterUserPassword: insecure
         DBBackupRetentionPeriod: '0' # speed up the example (do not set to 0 in production!)
         DBMultiAZ: 'false' # speed up the example (do not set to false in production!)
+        EngineVersion: '14.2'
       TemplateURL: './node_modules/@cfn-modules/rds-postgres/module.yml'
   Instance:
     Type: 'AWS::CloudFormation::Stack'
@@ -55,7 +57,6 @@ Resources:
       Parameters:
         VpcModule: !GetAtt 'Vpc.Outputs.StackName'
         AlertingModule: !GetAtt 'Alerting.Outputs.StackName'
-        IAMUserSSHAccess: 'true'
         UserData: |
           yum install -y httpd24 php70 php70-pgsql
           wget -O  /var/www/html/index.php https://github.com/vrana/adminer/releases/download/v4.6.3/adminer-4.6.3.php
