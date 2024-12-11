@@ -1,0 +1,30 @@
+name: Test
+on:
+  push:
+    branches: [master]
+  pull_request:
+permissions:
+  id-token: write
+  contents: read
+concurrency:
+  group: test
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ['ubuntu-latest']
+    steps:
+    - uses: 'actions/checkout@v2'
+    - uses: aws-actions/configure-aws-credentials@v4
+      with:
+        role-to-assume: 'arn:aws:iam::068189904525:role/github-openid-connect'
+        aws-region: 'eu-west-1'
+    - uses: actions/setup-node@v4
+      with:
+        node-version: '18.x'
+    - name: test
+      run: |
+        npm ci
+        cd test
+        npm ci
+        CFN_PACKAGE_BUCKET_NAME=cf-templates-1a2zmgbg9ut4o-eu-west-1 npm test
+        cd -

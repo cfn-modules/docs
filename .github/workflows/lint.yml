@@ -1,0 +1,24 @@
+name: Lint
+on:
+  push:
+    branches: [master]
+  pull_request:
+jobs:
+  build:
+    runs-on: ['ubuntu-latest']
+    steps:
+    - uses: 'actions/checkout@v2'
+    - uses: 'actions/setup-python@v2'
+      with:
+        python-version: '3.8'
+    - name: yamlllint
+      run: |
+        pip install yamllint==1.35.1
+        yamllint module.yml && yamllint test/*.yml
+    - name: cfn-lint
+      run: |
+        pip install cfn-lint==1.20.1
+        cfn-lint -i W3002 W2001 W1011 -t module.yml && cfn-lint -i W3002 W2001 W1011 -t test/*.yml # Remove W2001 after enabling SecondsUntilAutoPause
+    - name: license
+      run: |
+        grep -q "LICENSE-2.0" module.yml
