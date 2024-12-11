@@ -2,7 +2,7 @@
   "private": true,
   "dependencies": {
     "eslint": "7.32.0",
-    "ava": "3.15.0",
+    "ava": "6.2.0",
     "@cfn-modules/test": "0.9.1"
   },
   "scripts": {
