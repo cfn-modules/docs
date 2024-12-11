@@ -15,7 +15,7 @@
     "@cfn-modules/alb-listener": "1.2.0",
     "@cfn-modules/ecs-alb-target": "1.4.0",
     "@cfn-modules/fargate-service": "2.11.0",
-    "@cfn-modules/lb-dns-record": "1.0.0",
+    "@cfn-modules/lb-dns-record": "1.1.1",
     "@cfn-modules/route53-hosted-zone-wrapper": "1.7.0"
   }
 }
