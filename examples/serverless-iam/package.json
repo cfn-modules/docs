@@ -7,7 +7,7 @@
   "private": true,
   "dependencies": {
     "@cfn-modules/alerting": "1.2.2",
-    "@cfn-modules/dynamodb-table": "1.6.0",
+    "@cfn-modules/dynamodb-table": "1.6.1",
     "@cfn-modules/lambda-function": "2.9.0",
     "@cfn-modules/sqs-queue": "1.2.0",
     "@cfn-modules/s3-bucket": "1.6.0"
