@@ -10,7 +10,7 @@ for example in ../examples/*; do
 			npm ci
 			cd test/
 			npm ci
-			npm test
+			CFN_PACKAGE_BUCKET_NAME=cf-templates-1a2zmgbg9ut4o-eu-west-1 npm test
 		fi
 	)
 done
