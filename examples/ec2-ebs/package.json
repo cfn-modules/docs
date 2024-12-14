@@ -7,7 +7,7 @@
   "private": true,
   "dependencies": {
     "@cfn-modules/alerting": "1.2.2",
-    "@cfn-modules/vpc": "2.1.0",
+    "@cfn-modules/vpc": "2.3.0",
     "@cfn-modules/ebs-volume": "1.2.0",
     "@cfn-modules/ec2-instance-amazon-linux": "2.4.0"
   }
