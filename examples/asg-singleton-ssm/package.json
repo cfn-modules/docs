@@ -7,7 +7,7 @@
   "private": true,
   "dependencies": {
     "@cfn-modules/alerting": "1.2.2",
-    "@cfn-modules/vpc": "2.1.0",
-    "@cfn-modules/asg-singleton-amazon-linux2": "2.3.0"
+    "@cfn-modules/vpc": "2.3.0",
+    "@cfn-modules/asg-singleton-amazon-linux2": "2.4.0"
   }
 }
