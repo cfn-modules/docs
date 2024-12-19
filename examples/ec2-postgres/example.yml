@@ -49,7 +49,7 @@ Resources:
         DBMasterUserPassword: insecure
         DBBackupRetentionPeriod: '0' # speed up the example (do not set to 0 in production!)
         DBMultiAZ: 'false' # speed up the example (do not set to false in production!)
-        EngineVersion: '14.2'
+        EngineVersion: '17.2'
       TemplateURL: './node_modules/@cfn-modules/rds-postgres/module.yml'
   Instance:
     Type: 'AWS::CloudFormation::Stack'
