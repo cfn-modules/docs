@@ -18,6 +18,7 @@ jobs:
       with:
         role-to-assume: 'arn:aws:iam::068189904525:role/github-openid-connect'
         aws-region: 'eu-west-1'
+        role-duration-seconds: 7200
     - uses: actions/setup-node@v4
       with:
         node-version: '18.x'
