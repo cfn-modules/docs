@@ -45,6 +45,7 @@ Resources:
         VpcModule: !GetAtt 'Vpc.Outputs.StackName'
         ClientSgModule: !GetAtt 'ClientSg.Outputs.StackName'
         AlertingModule: !GetAtt 'Alerting.Outputs.StackName'
+        EngineVersion: '8.4.3'
         DBMasterUserPassword: insecure
         DBBackupRetentionPeriod: '0' # speed up the example (do not set to 0 in production!)
         DBMultiAZ: 'false' # speed up the example (do not set to false in production!)
