@@ -46,7 +46,7 @@ Resources:
         ClientSgModule: !GetAtt 'ClientSg.Outputs.StackName'
         AlertingModule: !GetAtt 'Alerting.Outputs.StackName'
         NumberOfBrokerNodes: !GetAtt 'Vpc.Outputs.NumberOfAvailabilityZones'
-        KafkaVersion: '2.2.1'
+        KafkaVersion: '3.7.x'
         InstanceType: 'kafka.t3.small'
         EBSVolumeSize: '10'
       TemplateURL: './node_modules/@cfn-modules/msk-cluster/module.yml'
