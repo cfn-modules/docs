@@ -1,7 +1,7 @@
 {
   "private": true,
   "dependencies": {
-    "eslint": "9.39.4",
+    "eslint": "9.39.5",
     "ava": "6.4.1",
     "@cfn-modules/test": "0.9.1"
   },
